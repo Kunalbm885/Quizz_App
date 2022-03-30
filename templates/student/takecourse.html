@@ -1,0 +1,182 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Poppins:wght@100;200;300;400;600;700&display=swap"
+    rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'css/student.css' %}">
+    <meta charset="utf-8">
+
+
+</head>
+
+<body>
+
+    <!--header area start-->
+    <div class="nav-container">
+
+        <h2>Quizz App Name</h2>
+    </div>
+   
+
+    <div class="sidebar">
+        <div class ="panel">
+
+        <center>
+
+            <img src="{% static 'images/student.png' %}" class="profile_image" alt="">
+            
+            <h6>{{request.session.stuname}}</h6>
+            <h4>(Student)</h4>
+
+        </center>
+
+        <ul class="sideitems">
+            <li>
+                <a   href="{% url 'taketoSdash' %}">Home</a>
+            </li>
+
+            <li>
+                <a href="/Report.html">Reports</a>
+            </li>
+
+            <li>
+                <a  href="/" style="margin-top: 100px;">Logout</a>
+            </li>
+
+    </div>
+</div>
+    <!--sidebar end-->
+
+    <div class="content">
+    
+            <div class="row">
+                
+                            <table class="table table-hover">
+                
+
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Sr. No.</th>
+                                        <th scope="col">Quiz Name</th>
+                                        <th scope="col">Attempt &nbsp Before_(yyyy-mm-dd)</th>
+                                        
+
+                                    </tr>
+                                </thead>
+                                
+                                <tbody>
+                                    {% for i in c %}
+                                    <tr>
+                                      
+                                    
+                                        <th scope="row">{{ forloop.counter }}</th>
+                                        <td><a class="gg" id="name" href="{% url 'taketogivexam' pk=i.quizname eml=request.session.stuemail %}">{{i.quizname}}</a></td>
+                                        <td id="ddd" value="{{i.Duedate}}">{{i.Duedate}} &nbsp &nbsp  (time) &nbsp-->{{i.Time}}</td>
+                                        <label id="time" value="{{i.Time}}"></label>
+
+                                       
+                                        
+                                    </tr>
+                                    
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                     
+            </div>
+    </div>
+
+<script>
+
+    {% comment %} function toDate(selector) {
+        var from = $(selector).val().split("-")
+        var nw=new Date(from[0], from[1] - 1, from[2])
+        
+        console.log(nw)
+        return nw
+      } {% endcomment %}
+      
+      {% comment %} const toDate = (dateStr) => {
+        const [year, month, day] = dateStr.split("-")
+        var nw=new Date(year, month - 1, day)
+        console.log(nw)
+
+         return nw
+      }
+      var f = toDate("#ddd") {% endcomment %}
+
+function compareDate(){
+        // str1 format should be dd/mm/yyyy. Separator can be anything e.g. / or -. It wont 
+        var str1 = dateStr (document.getElementById("ddd").value)
+        var yr1   = parseInt(str1.substring(0,4));
+        var mon1  = parseInt(str1.substring(5,7));
+        var dt1   = parseInt(str1.substring(8,10));
+        var date1 = new Date(yr1, mon1-1, dt1);
+
+        console.log(date1)
+        
+        return date1
+        }
+
+
+
+function Show()
+    {
+        var date = new Date();
+        var cdate = date.getDate();
+        if(cdate <10){
+            cdate = '0' +cdate;
+        }
+        var month = date.getMonth() + 1;
+        if(month <10){
+            month = '0' +month;
+        }
+        var year = date.getUTCFullYear();
+        var todayDate = year +"-"+month +"-"+ cdate;
+        console.log(todayDate);
+
+        var output = new (document.getElementById("ddd").value);
+        console.log(output)
+
+
+       if (todayDate > output) 
+       {
+
+        $('.gg').click(function(event){
+            event.preventDefault();});
+       }
+       
+           
+    }
+
+
+        
+    $(document).ready(function(){
+        Show();
+    });
+
+
+   
+
+
+
+
+
+    
+
+
+</script>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Poppins:wght@100;200;300;400;600;700&display=swap"
+    rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta charset="utf-8">
+    <title>QuizzName</title>
+
+
+</head>
+
+<body>
+
+    <!--header area start-->
+    <div class="nav-container">
+
+        <h2>Quizz App Name</h2>
+    </div>
+    <!--header area end-->
+
+    <!--sidebar start-->
+    <div class="sidebar">
+        <div class ="panel">
+
+        <center>
+
+            <img src="{% static 'images/Teacher.png' %}" class="profile_image" alt="">
+            
+            <h6 >{{request.session.tename}}</h6>
+            <h4>(teacher)</h4>
+
+
+        </center>
+
+
+                <ul class="sideitems">
+                    <li>
+                        <a   href="{% url 'taketoTdash' %}">Home</a>
+                    </li>
+        
+                    <li>
+                        <a href="/student/student-marks">Reports</a>
+                    </li>
+        
+                    <li>
+                        <a  href="/" style="margin-top: 100px;">Logout</a>
+                    </li>
+    </div>
+</div>
+
+
+    <div class="form-area">
+        <h3>Add Quiz</h3>
+        <form action="{% url 'getquizinfo' pk=request.session.tename%}" method="post">
+            {% csrf_token %}
+            <p class="single-form">
+                <label for="quiz name">Quiz Name</label><input type="text" name="quizname" id="quiz name" required>
+                
+            </p>
+             {% comment %} <p class="single-form">
+                <label for="time">Total Time (mins)</label><input type="text" name="time" id="time" required>
+                
+            </p> {% endcomment %}
+
+            <p class="single-form">
+                <label for="marks">End Date</label><input type="Date" name="date" id="DATE" required>
+                
+            </p>
+
+            <p class="single-form">
+                <label for="quiz name">Quiz End Time</label><input type="time" name="time" id="time" required>
+                
+            </p>
+            <input class="bnt" type="submit" value="Submit">
+            <!-- <a href="addQue.html">Submit</a> -->
+        </form>
+    </div>
+
+<script>
+
+   var date = new Date();
+    var cdate = date.getDate();
+    if(cdate <10){
+        cdate = '0' +cdate;
+    }
+    var month = date.getMonth() + 1;
+    if(month <10){
+        month = '0' +month;
+    }
+    var year = date.getUTCFullYear();
+    var minDate = year +"-"+month + "-" + cdate;
+    document.getElementById("DATE").setAttribute('min', minDate);
+    console.log(minDate);
+
+</script>
+   
+</body> 
+</html>   
+

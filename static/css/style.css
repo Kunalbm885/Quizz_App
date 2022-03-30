@@ -1,0 +1,891 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0%;
+    font-family: 'Lora', serif;
+font-family: 'Poppins', sans-serif;
+
+}
+body{
+    
+    font-family: "Roboto",sans-serif;
+    background: rgb(240, 229, 241);
+ 
+
+} 
+
+/* hr{
+    border: 2px black;
+} */
+/* ---------Homepage--------- ==================================================================================================================*/
+
+.bg-img{
+width: 100%;
+height: 100vh;
+background-repeat: no-repeat;
+background-size: cover;
+
+position: relative;
+}
+.bg-img img{
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+background-size: cover;
+position: relative;
+filter: blur(10px);
+border: black;
+box-shadow: 0px 9px 7px rgb(0 0 0 / 60%);
+}
+.wel{
+    font-size: 38px;
+    width: 30%;
+    position: relative;
+    bottom: 67%;
+    left: 38%;
+}
+/* ------------------------------------------------=================================================================================================================================== */
+.TContainer{
+    background: #ebd2ff;
+    margin-top: 80px;
+}
+.T-content{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 100px;
+}
+h2{
+    font-size: 38px;
+    font-weight: 600;
+    padding-bottom: 10px;
+}
+p{
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+    padding: 10px;
+    
+}
+
+.Teach{
+        margin-top: 5%;
+        display: flex;
+        justify-content: space-between; 
+}
+
+.features{
+    flex-basis: 31%;
+    background-color: #ffffff8a;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding: 20px;
+    box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.41);
+
+
+}
+
+.features:hover{
+    flex-basis: 31%;
+    background-color: #ca55f8f6;
+    border-radius: 10px;
+    box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.41);
+    transition: 0.3s;
+    color: rgba(255, 255, 255, 0.938);
+    
+
+
+
+}
+/* ------------------------------------------------------ */
+.S-content{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 70px;
+}
+h2{
+    font-size: 38px;
+    font-weight: 600;
+    padding-bottom: 10px;
+}
+p{
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+    padding: 10px;
+}
+
+
+
+/* ---navigation bar-----=========================================================================================================================== */
+.nav-container{
+ 
+    position: fixed;
+    z-index: 3;
+    width: 100%;
+    height: 93px;
+    background: #f2eafa;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    
+
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+}
+nav ul{
+    display: flex;
+    padding-top: 10px;
+
+}
+
+.logo{
+    /* font-family: "Sedan";  */
+    font-family: 'Lora', serif;
+    font-family: 'Poppins', sans-serif;
+    padding-top: 12px; 
+    padding-left: 150px; 
+    font-size: 30px;
+}
+.logo h1{
+    font-size: 38px;
+    font-weight: 600;
+}
+.navitems li{
+    list-style: none;
+    margin-right: 100px;
+    text-decoration: none;
+    padding-top: 5px;
+
+}
+.navitems li a {
+    padding: 4px 10px;
+
+    color: black;
+    font-size: 24px;
+    font-family: "Poppins" , sans-serif;
+    text-decoration: none;
+}
+.navitems li a:hover {
+    cursor: pointer;
+    outline: none;
+    
+    color: #043f17;
+    padding: 4px 10px;
+background: #6422cd;
+box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.52);
+border-radius: 30px;
+    color: rgb(255, 255, 255);
+    font-family: "Poppins" , sans-serif;
+    text-decoration: none;
+    transition: 0.3s;
+
+}
+.navitems .current{
+    cursor: pointer;
+    outline: none;
+    
+    color: #043f17;
+    padding: 4px 10px;
+background: #6422cd;
+box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.52);
+border-radius: 30px;
+    color: rgb(255, 255, 255);
+    font-family: "Poppins" , sans-serif;
+    text-decoration: none;
+    /* transition: 0.3s; */
+
+}
+
+
+/* ---------LoginPage------======================================================================================================================== */
+.bg1-img{
+    width: 100%;
+height: 100vh;
+background-repeat: no-repeat;
+background-size: cover;
+position: relative;
+}
+
+.bg1-img img{
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+background-size: cover;
+position: relative;
+filter: blur(10px);
+border: black;
+box-shadow: 0px 9px 7px rgb(0 0 0 / 60%);
+}
+.logincontainer{
+
+    position: absolute;
+    width: 703px;
+    height: 437px;
+
+    top: 28%;
+    left:30%; 
+    background: rgba(144, 113, 206, 0.541);
+    box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.41);
+    border-radius: 15px;
+}
+.logincontainer h1{
+    font-size: 45px;
+    font-family: "Sedan";
+    padding: 30px 300px 10px;
+
+}
+.box{
+    position: relative;
+    top: 30px;
+    left: 85px;
+    width: 499px;
+    height: 49px;
+    /* left: 423px; */
+    /* top: 288px; */
+    /* padding: 55px; */
+    margin: 0px 0px 50px 10px;
+
+
+    
+}
+.box input{
+    font-size: 18px;
+    width: 100%;
+    /* position: relative; */
+    margin: 1px 5px;
+    border: none;
+    outline: none;
+    background: #FFFFFF;
+    /* background: rgba(90, 163, 132, 0.65); */
+    box-shadow: inset 1px 5px 5px rgb(0 0 0 / 45%);
+    border-radius: 30px;
+    padding: 15px;
+    /* top: 50px; */
+
+    
+}
+
+.btn{
+    border: none;
+    cursor: pointer;
+    outline: none;
+    width: 111px;
+    height: 45px;
+    margin: 24px 295px;
+    color: white;
+    padding: 10px 12px;
+background: #6422cd;
+box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.52);
+border-radius: 30px;
+}
+.btn:hover{
+    cursor: pointer;
+    outline: none;
+    width: 111px;
+    height: 45px;
+    margin: 24px 295px;
+    color: #ffffff;
+    font-size: 15px;
+    padding: 10px 12px;
+background: #894ee9fb;
+box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.52);
+border-radius: 30px;
+transition: 0.4s;
+
+}
+
+.reglink{
+    position: relative;
+    bottom: 20px;
+    text-align: center;
+list-style: none;
+}
+.reglink a{
+    text-decoration: none;
+    /* color: #1E6937; */
+    color: white;
+}
+.reglink a:hover{
+    color:#000000;
+}
+
+
+
+/* ---------Registration For Student-----------==========================================================================================================- */
+.bg1-img{
+    width: 100%;
+height: 100vh;
+background-repeat: no-repeat;
+background-size: cover;
+position: relative;
+}
+
+.bg1-img img{
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+background-size: cover;
+position: relative;
+filter: blur(10px);
+border: black;
+box-shadow: 0px 9px 7px rgb(0 0 0 / 60%);
+}
+.Reg-container{
+
+    position: absolute;
+    width: 1300px;
+    height: 600px;
+    top: 20%;
+    left: 12%;
+    background: rgba(144, 113, 206, 0.541);
+    box-shadow: rgb(0 0 0 / 41%) 0px 7px 8px 6px;
+    border-radius: 38px;
+}
+    
+.Reg-container h1{
+
+    font-size: 40px;
+    font-family: "Sedan";
+    padding: 20px 50px 20px 155px;
+
+}
+.textfield{
+    padding: 7px 25px;
+}
+.textfield input{
+
+    font-size: 13PX;
+    width: 79%;
+    margin: -3px 54px 5px 74px;
+    border: none;
+    outline: none;
+    background: rgb(255, 255, 255);
+    box-shadow: rgb(0 0 0 / 45%) 1px 5px 5px inset;
+    border-radius: 30px;
+    padding: 13px;
+    
+}
+
+.textfield label{
+    margin: 58px 39px 53px 22px;
+    font-size: 18px;
+    padding: 12px 9px 11px 71px;
+    /* font-family: ui-sans-serif; */
+}
+
+.regS-button{
+    border: none;
+    cursor: pointer;
+    outline: none;
+    width: 131px;
+    height: 44px;
+    margin: 19px 86px -4px 258px;
+    color: white;
+    padding: -5px 12px;
+    background: #6422cd;
+    box-shadow: 0px 5px 10px rgb(0 0 0 / 52%);
+    border-radius: 30px;
+}
+.regS-button:hover{
+    cursor: pointer;
+    outline: none;
+    width: 131px;
+    height: 44px;
+    color: #ffffff;
+    font-size: 14px;
+    padding: -5px 12px;
+background: #894ee9fb;
+box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.52);
+border-radius: 30px;
+transition: 0.4s;
+}
+.fields-S{
+    width:50%;
+    position: relative;
+}
+.img-s{
+    width: 60%;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    bottom: 600px;
+    left: 547px;
+}
+.img-s img{
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    bottom: 550px;
+    width: 100%;
+    top: 55px;
+}
+
+
+/* --------Teachers Registration------ ===========================================================================================================*/
+
+.bg1-img{
+    width: 100%;
+height: 100vh;
+background-repeat: no-repeat;
+background-size: cover;
+position: relative;
+}
+
+.bg1-img img{
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+background-size: cover;
+position: relative;
+filter: blur(10px);
+border: black;
+box-shadow: 0px 9px 7px rgb(0 0 0 / 60%);
+}
+.RegT-container{
+
+    position: absolute;
+    width: 1300px;
+    height: 600px;
+    top: 20%;
+    left: 12%;
+    background: rgba(144, 113, 206, 0.541);
+    box-shadow: rgb(0 0 0 / 41%) 1px 6px 15px 5px;
+    border-radius: 38px;
+}
+    
+.RegT-container h1{
+
+    font-size: 35px;
+    font-family: "Poppins",sans-serif;
+    padding: 35px 77px 32px 148px;
+
+}
+ .img {
+    width: 50%;
+    /* height: 100vh; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    bottom: 600px;
+    left: 50px;
+
+} 
+.img img{
+          /* height: 100vh; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    bottom: 550px;
+    width: 100%;
+    top: 55px;
+    /* box-shadow: rgb(0 0 0 / 41%) 1px 6px 15px 5px; */
+
+}
+.fields{
+    width:50%;
+    position: relative;
+    left: 650px;
+
+}
+.textfield_T{
+    width: 100%;
+    padding: 7px 25px;
+}
+.textfield_T input{
+
+    font-size: 16PX;
+    width: 79%;
+    margin: -3px 54px 5px 74px;
+    border: none;
+    font-family: "Poppins" , sans-serif;
+    outline: none;
+    background: rgb(255, 255, 255);
+    box-shadow: rgb(0 0 0 / 45%) 1px 5px 5px inset;
+    border-radius: 30px;
+    padding: 13px;
+    
+}
+
+.textfield_T label{
+    margin: 58px 39px 53px 22px;
+    font-size: 18px;
+    padding: 12px 50px 30px 70px;
+    font-family: "Poppins" sans-serif;
+}
+
+.regT-button{
+    border: none;
+    cursor: pointer;
+    outline: none;
+    width: 131px;
+    height: 44px;
+    margin: 35px 86px 19px 279px;
+    color: white;
+    padding: -5px 12px;
+    background: #6422cd;
+    box-shadow: 0px 5px 10px rgb(0 0 0 / 52%);
+    border-radius: 30px;
+}
+.regT-button:hover{
+    cursor: pointer;
+    outline: none;
+    width: 131px;
+    height: 44px;
+    color: #ffffff;
+    font-size: 14px;
+    padding: -5px 12px;
+background: #894ee9fb;
+box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.52);
+border-radius: 30px;
+transition: 0.4s;
+}
+
+
+
+
+/* -----------TEACHERDASH-------=================================================================================================================- */
+
+/* .nav-container{
+    position: relative;
+    height: 100px;
+    background: rgba(250, 232, 255, 0.8);
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+
+  } */
+  .nav-container h2{
+    font-family: 'Lora', serif;
+    font-family: 'Poppins', sans-serif;
+    position: absolute;
+    top: 25%;
+    left: 45%;
+
+     font-size: 30px;
+  }
+
+.sidebar{
+   
+    position: absolute;
+    width: 439px;
+    height: 655px;
+    top: 16%;
+    left: 4%;
+    background: linear-gradient(158.53deg, #3E046B 2.21%, rgba(128, 20, 214, 0.94) 49.45%, rgba(130, 28, 166, 0.94) 99.11%);
+    box-shadow: 5px 5px 4px rgb(0 0 0 / 50%);
+    border-radius: 15px;
+} 
+
+.profile_image{
+    width: 170px;
+    padding-top: 50px;
+}
+
+h6{
+    /* margin: 1px 83px 1px 81px; */
+    font-size: 26px;
+    color: #f3dffc;
+
+
+}
+h4{
+    color: #f3dffc;
+    font-weight: 200;
+}
+
+.sideitems li{
+    list-style: none;
+    /* margin-right: 100px; */
+    text-decoration: none;
+    padding-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sideitems li a{
+
+    padding: 7px 109px;
+    background: rgb(235, 156, 255);
+
+    color: black;
+    font-size: 24px;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.52);
+border-radius: 30px;
+    text-decoration: none;
+}
+
+
+.sideitems li a:hover{
+    cursor: pointer;
+    outline: none;
+    
+    color: #043f17;
+    padding: 7px 109px;
+background: rgb(225, 104, 255)
+;
+box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.52);
+border-radius: 30px;
+    color: rgb(255, 255, 255);
+    font-family: "Poppins" , sans-serif;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.manage_content{
+    position: absolute;
+    width: 894px;
+    height: 80px;
+    top: 16%;
+    left: 36%;
+}
+
+.manage_content h1{
+    color: #510077bb;
+    font-weight: 200;
+}
+
+.manage_content hr{
+    height: 5px;
+}
+.form-area{
+    position: absolute;
+    width: 703px;
+    height: 437px;
+
+    top: 28%;
+    left:33%; 
+   
+}
+.form-area-aq{
+    position: absolute;
+    width: 1002px;
+    height: 652px;
+    top: 17%;
+    left: 36%;
+    
+}
+.form-area h3{
+    font-weight: 600;
+    position: relative;
+    left: 60%;
+    font-size: 30px;
+}
+.form-area-aq h3{
+    font-weight: 600;
+    position: relative;
+    left: 60%;
+    font-size: 30px;
+    width: 250px;
+}
+.single-form{
+    width:100%;
+    position: relative;
+    left: 120px;
+    margin-bottom: 25px;
+}
+.single-form-mks{
+    position: absolute;
+    left: 72%;
+    top: 6%;
+}
+.single-form-mks input{
+    width: 20%;
+    border-color: #510077bb;
+    border-radius: 6px;
+    padding: 0px 5px 0px 6px;
+
+
+}
+.single-form-aq{
+    width:98%;
+    position: relative;
+    left: 48px;
+    top: 20px ;
+    margin-bottom: 25px; 
+}
+.single-form-aq label{
+    font-size: 24px;
+}
+.single-form-aq input{
+    font-size: 16PX;
+    width: 93%;
+    margin: 8px -39px 5px -2px;
+    font-family: "Poppins" , sans-serif;
+    border-color: #510077bb;
+    background: rgb(255, 255, 255);
+    /* box-shadow: rgb(0 0 0 / 45%) 1px 5px 5px inset; */
+    border-radius: 15px;
+    padding: 13px;
+}
+.single-form-1{
+    width:100%;
+    position: relative;
+    left: 45px;
+    top: 20px ;
+    margin-bottom: 25px;
+}
+.in{
+    cursor: pointer;
+    position: relative;
+    right: -58px;
+    top: 4px;
+    size: 14px;
+    height: 18px;
+    width: 18px;
+}
+.inp{
+    font-size: 16PX;
+    width: 57%;
+    margin: -10px -24px -49px 21px;
+    font-family: "Poppins" , sans-serif;
+    border-color: #510077bb;
+    background: rgb(255, 255, 255);
+    /* box-shadow: rgb(0 0 0 / 45%) 1px 5px 5px inset; */
+    border-radius: 15px;
+    padding: 7px 7px 7px 40px;
+    margin-bottom: 15px;
+
+}
+.single-form-1 label{
+    font-size: 18px;
+}
+.single-form-aqa{
+    width:100%;
+    position: relative;
+    left: 45px;
+    top: 20px ;
+    margin-bottom: 25px;
+}
+.single-form-aqa input{
+    font-size: 16PX;
+    width:53%;
+    margin: 19px -24px -35px 21px;
+    font-family: "Poppins" , sans-serif;
+    border-color: #510077bb;
+    background: rgb(255, 255, 255);
+    /* box-shadow: rgb(0 0 0 / 45%) 1px 5px 5px inset; */
+    border-radius: 15px;
+    padding: 13px;
+}
+.single-form-aqa label{
+    font-size: 18px;
+
+}
+.single-form input{
+    font-size: 16PX;
+    width: 79%;
+    margin: 10px 54px 5px 100px;
+
+    font-family: "Poppins" , sans-serif;
+
+    border-color: #510077bb ;
+    background: rgb(255, 255, 255);
+    /* box-shadow: rgb(0 0 0 / 45%) 1px 5px 5px inset; */
+    border-radius: 15px;
+    padding: 13px;
+    
+}
+
+.single-form label{
+    margin: 58px 39px 53px 22px;
+    font-size: 18px;
+    padding: 12px 50px 30px 70px;
+    font-family: "Poppins" sans-serif;
+}
+.form-area .bnt{
+
+    position: relative;
+    left: 64%;
+    top: 28px;
+    background-color: #7013b8;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    width: 131px;
+    height: 44px;
+    color: white;
+    padding: -5px 12px;
+    box-shadow: 0px 5px 10px rgb(0 0 0 / 52%);
+    border-radius: 30px;
+}
+.form-area .bnt:hover{
+
+    position: relative;
+    left: 64%;
+    top: 28px;
+    background-color: #a346eb;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    width: 131px;
+    height: 44px;
+    color: white;
+    padding: -5px 12px;
+    box-shadow: 0px 5px 10px rgb(0 0 0 / 52%);
+    border-radius: 30px;
+}
+.addqt{
+    position: relative;
+    left: 64%;
+    top: 33px;
+    background-color: #7013b8;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    width:148px;
+    height: 44px;
+    color: white;
+    padding: -5px 12px;
+    box-shadow: 0px 5px 10px rgb(0 0 0 / 52%);
+    border-radius: 30px;
+}
+
+.addqt:hover{
+    position: relative;
+    left: 64%;
+    top: 33px;
+    background-color: #a346eb;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    width: 148px;
+    height: 44px;
+    color: white;
+    padding: -5px 12px;
+    box-shadow: 0px 5px 10px rgb(0 0 0 / 52%);
+    border-radius: 30px;
+}
+.form-area-aq li {
+    list-style: none;
+    position: absolute;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    left: 82%;
+    bottom: 3%;
+}
+.form-area-aq li a{
+    padding: 11px 20px;
+    background-color: #7013b8;
+    color: white;
+    font-size: 13px;
+    box-shadow: 0px 5px 10px rgb(0 0 0 / 52%);
+    border-radius: 30px;
+    text-decoration: none;
+}
+.form-area-aq li a:hover{
+    padding: 11px 20px;
+    background-color: #a346eb;
+
+    color: white;
+    font-size: 13px;
+    box-shadow: 0px 5px 10px rgb(0 0 0 / 52%);
+    border-radius: 30px;
+    text-decoration: none;
+
+}
+

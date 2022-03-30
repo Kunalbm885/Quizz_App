@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Poppins:wght@100;200;300;400;600;700&display=swap"
+    rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>QuizzName</title>
+</head>
+<body>
+    <header>
+    <div class="nav-container">
+        <nav>
+            <div class="logo">
+ <h1>               Quizz App Name
+ </h1>           </div>
+            <ul class="navitems">
+                <li>
+                    <a href="{% url 'homepage' %}">Home</a>
+                </li>
+                <li>
+                     <a href="{% url 'taketoTlogin' %}">Teacher</a>
+                 </li>
+                 <li>
+                     <a class="current" href="{% url 'taketoSlogin' %}">Student</a>
+                 </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="bg1-img">
+        <img src="{% static 'images/Background.png' %}" alt="">
+    </div>
+
+</header>
+    <div class="Reg-container">
+
+        <form action="{% url 'studentreg' %}" method="post">{% csrf_token %}
+        {% if msg %}
+        <h5>{{msg}}</h5>
+        {% endif %}
+        <div class="fields-S">
+        <h1>Student  Registration</h1>
+        <div class="textfield">
+            <label>Name:</label><input type="text" name="sname" placeholder="Enter your Name" autocomplete="off">
+        </div>
+        <div class="textfield">
+            <label>Email-id:</label><input type="email" name="semail" id="emailid" placeholder="Enter your Email_id" autocomplete="off">
+        </div>
+        <div class="textfield">
+            <label>Roll Number:</label><input type="text" name="rollno" placeholder="Enter your Roll No." autocomplete="off">
+        </div>
+        <div class="textfield">
+            <label>Password:</label><input type="text" name="spass" placeholder="Create Password" autocomplete="off">
+        </div>
+        <div class="textfield">
+            <label>Confirm Password:</label><input type="password" name="scpass" id="cnfpassword" placeholder="Confirm Password">
+        </div>
+        <button class="regS-button" type="submit">Create Account</button>
+        </div>
+    </form>
+        <div class="img-s">
+            <img src="{% static 'images/reg s1.png' %}" alt="">
+        </div>
+     
+    </div>
+    
+</body>
+</html>

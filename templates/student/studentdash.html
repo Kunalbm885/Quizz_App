@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Poppins:wght@100;200;300;400;600;700&display=swap"
+    rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/student.css' %}">
+    <meta charset="utf-8">
+
+
+</head>
+
+<body>
+
+    <!--header area start-->
+    <div class="nav-container">
+
+        <h2>Quizz App Name</h2>
+    </div>
+    <!--header area end-->
+  
+
+    <div class="sidebar">
+        <div class ="panel">
+
+        <center>
+
+            <img src="{% static 'images/student.png' %}" class="profile_image" alt="">
+            
+            <h6>{{request.session.stuname}}</h6>
+            <h4>(Student)</h4>
+
+        </center>
+
+        <ul class="sideitems">
+            <li>
+                <a   href="{% url 'selectcourse' %}">Take Quiz</a>
+            </li>
+
+            <li>
+                <a href="{% url 'taketoreportpage'%}">Reports</a>
+            </li>
+
+            <li>
+                <a  href="/" style="margin-top: 100px;">Logout</a>
+            </li>
+
+    </div>
+</div>
+    <!--sidebar end-->
+
+    <div class="Result_content">
+      
+        <h1>Result / Report</h1>
+        <hr >
+        
+    
+
+        <div class="C_container">
+
+            <div class="card">
+              <img src="{% static 'images/notepad.png' %}" class="profile_image_2" alt="">
+              {% comment %} {% for i in R %} {% endcomment %}
+                <h3 class="card-title">Quiz Name : {{R.Quiz_Name}}</h3>
+                <hr>
+                <h5 class="card-title">Score : {{R.Score}}</h5>
+                <div class="card-body">
+                <p class="card-text">Percentage : {{R.Percentage}}%</p>
+                <p class="card-text">Correct answers : {{R.Correct}}</p>
+                <p class="card-text">Incorrect answers : {{R.Incorrect}}</p>
+                <p class="card-text">Total questions : {{R.Total}}</p>
+                {% comment %} {% endfor %} {% endcomment %}
+              </div>
+            </div>
+            
+        </div>
+    </div>
+    <hr>
+
+    <script src = "{% static 'css/app.js' %}"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" 
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+     crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" 
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

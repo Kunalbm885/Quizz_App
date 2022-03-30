@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora&family=Poppins:wght@100;200;300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>QuizzName</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="nav-container">
+        <nav>
+          <div class="logo">
+            <h1>Quizz App Name</h1>
+          </div>
+          <ul class="navitems">
+            <li>
+              <a class="current" href="{% url 'homepage' %}">Home</a>
+            </li>
+            <li>
+              <a href="{% url 'taketoTlogin' %}">Teacher</a>
+            </li>
+            <li>
+              <a href="{% url 'taketoSlogin' %}">Student</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+     
+
+      <div class="bg-img">
+        <img src="{% static 'images/Background.png' %}" alt="">
+        <br>
+        <br>
+        <br>
+        
+        
+
+        <div class="wel">
+          <h1>Welcome !</h1>
+        </div> 
+      </div>
+    </header>
+    <div class = "TContainer">
+
+    <div class="T-content">
+      <h2>Features for Teachers</h2>
+      <hr>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quisquam
+        ipsa aperiam impedit quo a aspernatur non et accusantium?
+      </p>
+
+      <div class="Teach">
+        <div class="features">
+          <h3>{1} Lorem, ipsum.</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
+            voluptate officia, molestias autem natus quibusdam ipsam aut, dicta,
+            ut repellat sunt odit consequatur non dignissimos illum architecto
+            deserunt. Delectus incidunt fuga nulla consequatur rerum quisquam
+            fugiat sequi perferendis perspiciatis dolorum.
+          </p>
+        </div>
+
+        <div class="features">
+          <h3>{2} Lorem, ipsum.</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
+            voluptate officia, molestias autem natus quibusdam ipsam aut, dicta,
+            ut repellat sunt odit consequatur non dignissimos illum architecto
+            deserunt. Delectus incidunt fuga nulla consequatur rerum quisquam
+            fugiat sequi perferendis perspiciatis dolorum.
+          </p>
+        </div>
+
+        <div class="features">
+          <h3>{3} Lorem, ipsum.</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
+            voluptate officia, molestias autem natus quibusdam ipsam aut, dicta,
+            ut repellat sunt odit consequatur non dignissimos illum architecto
+            deserunt. Delectus incidunt fuga nulla consequatur rerum quisquam
+            fugiat sequi perferendis perspiciatis dolorum.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <div class="S-content">
+      <h2>Features for Students</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quisquam
+        ipsa aperiam impedit quo a aspernatur non et accusantium?
+      </p>
+    </div>
+  </body>
+</html>
