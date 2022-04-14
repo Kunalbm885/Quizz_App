@@ -119,7 +119,7 @@ h4 {
   position: absolute;
   top: 170px;
   left: 35%;
-  width: 65%;
+  width: 63%;
 }
 
 .header {
@@ -137,12 +137,42 @@ h4 {
   );
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
 }
+.corheader{
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  width: 75%;
+  left: 17%;
+  height: 130px;
+  z-index: 3;
+  background: linear-gradient(
+    189.35deg,
+    #34005c -18.68%,
+    #8e30b1 46.97%,
+    #530371 86.5%
+  );
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+}
+.table tbody tr:hover{
+  background: #efcbf4cb;
+}
+.table thead{
+color: white;
+}
 .profile_image_1 {
   width: 68px;
   /* padding-top: 50px; */
   position: absolute;
   top: 30px;
   left: 1090px;
+  /* box-shadow: 0px 4px 4px rgb(0 0 0 / 25%); */
+}
+.profile_image_10 {
+  width: 68px;
+  /* padding-top: 50px; */
+  position: absolute;
+  top: 6px;
+  left: 25px;
   /* box-shadow: 0px 4px 4px rgb(0 0 0 / 25%); */
 }
 
@@ -155,10 +185,25 @@ h4 {
   font-size: 40px;
   font-weight: 600;
 }
+.corheader h1 {
+  position: absolute;
+  text-align: center;
+  color: #b090ee;
+  left: 98px;
+  top: 77px;
+  font-size: 32px;
+  font-weight: 600;
+}
 .header h4 {
   position: absolute;
   left: 1165px;
   top: 70px;
+  font-size: 13px;
+}
+.corheader h4 {
+  position: absolute;
+  left: 100px;
+  top: 40px;
   font-size: 13px;
 }
 .header h9 {
@@ -169,6 +214,18 @@ h4 {
   font-weight: 500;
   color: antiquewhite;
 }
+.corheader h9 {
+  position: absolute;
+  left: 100px;
+  top: 20px;
+  font-size: 27px;
+  font-weight: 500;
+
+ 
+    text-align: center;
+    color: #b090ee;
+    font-weight: bolder;
+}
 
 .h_link {
   position: absolute;
@@ -177,8 +234,19 @@ h4 {
   top: 50px;
   text-decoration: none;
   list-style: none;
-  background: antiquewhite;
-  border-radius: 50px;
+  background: #d5c1fd;
+  border-radius: 5px;
+}
+.corh_link {
+  position: absolute;
+  padding: 5px 10px 5px 10px;
+  left: 90%;
+  top: 40px;
+  text-decoration: none;
+  list-style: none;
+  background:#d5c1fd;
+  border-radius: 5px;
+  color: black;
 }
 .l_link {
   position: absolute;
@@ -187,11 +255,19 @@ h4 {
   top: 50px;
   text-decoration: none;
   list-style: none;
-  background: antiquewhite;
-  border-radius: 50px;
+  background: #d5c1fd;
+  border-radius: 5px;
 }
 .container {
   top: 20%;
+  position: absolute;
+  width: 75%;
+  left: 17%;
+  box-shadow: -1px -1px 14px -1px rgb(0 0 0 / 25%);
+  background: white;
+}
+.Cor_container{
+  top: 8%;
   position: absolute;
   width: 75%;
   left: 17%;
@@ -262,6 +338,7 @@ h4 {
   top: 140%;
   left: 7%;
 }
+
 .card{
   background: aliceblue;
   position: absolute;
@@ -289,8 +366,8 @@ h4 {
     color: #510077bb;
 }
 .card hr{
-  position: relative;
-    bottom: 116px;
+    position: relative;
+    bottom: 150px;
     left: 78px;
     width: 80%;
 }
@@ -310,7 +387,75 @@ h4 {
   padding: 16px 5px 10px 2px;
     margin-bottom: 0px;
 }
-/* .card-body{
+.card-body{
   position: relative;
   height: 100px;
+} 
+
+.cor{
+  background-color: rgb(141, 239, 141);
+  padding: 8px 15px;
+  border-radius: 5px;
+}
+
+.sel{
+  background-color: #b090ee;
+  padding: 8px 15px;
+  border-radius: 5px;
+}
+
+
+/* .true{
+  pointer-events: pointer;
+  cursor: default;
+  color: red;
 } */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

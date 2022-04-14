@@ -1,0 +1,110 @@
+
+
+
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <link rel ='icon' href="{% static 'images/logo.png' %}"/>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Poppins:wght@100;200;300;400;600;700&display=swap"
+    rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    {% comment %} <link rel="stylesheet" href="{% static 'css/teacher.css' %}"> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'css/teacher.css' %}">
+
+    <meta charset="utf-8">
+    <title>QuizzUS</title>
+
+
+</head>
+
+<body>
+
+    <!--header area start-->
+    <div class="nav-container">
+
+        <div class="logo">
+            <h1 style="position: absolute;left: 13%;top: 20%;color:#6e2e9d;font-size: 38px;font-weight: 600;left: 50%;">QuizzUS</h1>
+            <img src="{% static 'images/logo.png' %}"  alt="" style="position: relative;width: 101px;left: 43%;bottom: 9px;">
+
+            
+          </div>    </div>
+    <!--header area end-->
+  
+    <h2 style="position: absolute;left: 37%;/* bottom: 10px; */top: 111px;color: #8052ba;">Quiz Creators:</h2>
+    <hr style="position: relative;top: 150px;width: 63%;left: 33%;">
+    <div class="sidebar">
+        <div class ="panel">
+
+        <center>
+
+            <img src="{% static 'images/student.png' %}" class="profile_image" alt="">
+            
+            <h6>{{request.session.stuname}}</h6>
+            <h4>(Student)</h4>
+
+        </center>
+
+        <ul class="sideitems">
+            <li>
+                <a   href="{% url 'taketoSdash' pk=request.session.stuemail%}">Home</a>
+            </li>
+
+            <li>
+                <a href="{% url 'taketoreportpage'  eml=request.session.stuemail%}">Attempted</a>
+            </li>
+
+            <li>
+                <a  href="/" style="margin-top: 100px;">Logout</a>
+            </li>
+
+    </div>
+</div>
+    <!--sidebar end-->
+
+    <div class="content">
+        <div class="container" >
+            <div class="row">
+                {% for i in teaname %}
+                <div class="col-md-4 col-xl-3" style="position:relative ; top:25px" >
+                    <div class="card bg-c-yellow order-card" >
+                        <img src="{% static 'images/training.png' %}" class="teacherimg" style=" position: absolute;
+                        width: 105px;
+                        left: 77px;
+                        top: 9px;" alt="">
+                        
+
+                        <div class="card-block">
+                            <strong  style="position: relative;color: #8a82ea;font-size: 14px;font-weight: bold;" class="m-b-20"><a href="{% url 'selectcourse' pk=i.teachername %}">Prof :&nbsp&nbsp{{i.teachername}}</a></strong>
+                            {% comment %} <hr> {% endcomment %}
+
+                            {% comment %} <label class="sub"  style="position: relative;color: #8a82ea;font-size: 14px;font-weight: bold;">Subject :&nbsp&nbsp{{i.Subject}}</label> {% endcomment %}
+
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+        
+    
+
+        
+
+    <script src = "{% static 'css/app.js' %}"></script>
+
+
+    
+</body>
+
+</html>

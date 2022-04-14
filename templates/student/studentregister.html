@@ -2,21 +2,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel ='icon' href="{% static 'images/logo.png' %}"/>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Lora&family=Poppins:wght@100;200;300;400;600;700&display=swap"
     rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>QuizzName</title>
+    <title>QuizzUS</title>
 </head>
 <body>
     <header>
     <div class="nav-container">
         <nav>
             <div class="logo">
- <h1>               Quizz App Name
- </h1>           </div>
+                <h1 style="position: absolute;left: 13%;top: 13%;color:#6e2e9d;">QuizzUS</h1>
+                <img src="{% static 'images/logo.png' %}"  alt="" style="position: relative;width: 101px;right: 42%;bottom: -4px;">
+    
+                
+              </div>
             <ul class="navitems">
                 <li>
                     <a href="{% url 'homepage' %}">Home</a>
@@ -30,33 +35,33 @@
             </ul>
         </nav>
     </div>
-    <div class="bg1-img">
+    {% comment %} <div class="bg1-img">
         <img src="{% static 'images/Background.png' %}" alt="">
-    </div>
+    </div> {% endcomment %}
 
 </header>
     <div class="Reg-container">
 
         <form action="{% url 'studentreg' %}" method="post">{% csrf_token %}
-        {% if msg %}
+        {% comment %} {% if msg %}
         <h5>{{msg}}</h5>
-        {% endif %}
+        {% endif %} {% endcomment %}
         <div class="fields-S">
         <h1>Student  Registration</h1>
         <div class="textfield">
-            <label>Name:</label><input type="text" name="sname" placeholder="Enter your Name" autocomplete="off">
+            <label>Name:</label><input type="text" name="sname" placeholder="Enter your Name" autocomplete="off" required>
         </div>
         <div class="textfield">
-            <label>Email-id:</label><input type="email" name="semail" id="emailid" placeholder="Enter your Email_id" autocomplete="off">
+            <label>Email-id:</label><input type="email" name="semail" id="emailid" placeholder="Enter your Email_id" autocomplete="off" required>
         </div>
         <div class="textfield">
-            <label>Roll Number:</label><input type="text" name="rollno" placeholder="Enter your Roll No." autocomplete="off">
+            <label>Roll Number:</label><input type="text" name="rollno" placeholder="Enter your Roll No." autocomplete="off" required>
         </div>
         <div class="textfield">
-            <label>Password:</label><input type="text" name="spass" placeholder="Create Password" autocomplete="off">
+            <label>Password:</label><input type="password" name="spass" placeholder="Create Password" autocomplete="off" required>
         </div>
         <div class="textfield">
-            <label>Confirm Password:</label><input type="password" name="scpass" id="cnfpassword" placeholder="Confirm Password">
+            <label>Confirm Password:</label><input type="password" name="scpass" id="cnfpassword" placeholder="Confirm Password" required>
         </div>
         <button class="regS-button" type="submit">Create Account</button>
         </div>
@@ -67,5 +72,16 @@
      
     </div>
     
+
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+
+    {% if msg %}
+    swal('{{msg}}');
+
+    {% endif %}
+
+</script>
 </body>
 </html>

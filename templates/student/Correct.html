@@ -1,0 +1,143 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <link rel ='icon' href="{% static 'images/logo.png' %}"/>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Poppins:wght@100;200;300;400;600;700&display=swap"
+    rel="stylesheet">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+   
+    <link rel="stylesheet" href="{% static 'css/student.css' %}">
+    <meta charset="utf-8">
+    <title>QuizzUS</title>
+
+<style>
+    .corheader strong {
+        position: absolute;
+    text-align: center;
+    color: #b090ee;
+    left: 798px;
+    top: 34px;
+    font-size: 36px;
+    /* font-weight: 100;
+    }
+</style>
+</head>
+
+<body>
+
+    <!--header area start-->
+    <div class="corheader">
+
+        <h1>Quiz Name : {{pk}}</h1>
+        {% for c in check2%}
+        <strong>Score: {{c.Score}} / {{c.Total_Marks}}</strong>
+        {% endfor %}
+        
+        <img src="{% static 'images/student.png' %}" class="profile_image_10" alt="">
+        {% comment %} <h4>{{request.session.stuemail}}</h4> {% endcomment %}
+        <h9>{{request.session.stuname}}</h9>
+        
+        <a class ="corh_link" href="{% url 'taketoSdash' pk=request.session.stuemail %}">Back</a>
+        {% comment %} <a class="l_link" href="{% url 'taketoTlogin' %}">Logout</a> {% endcomment %}
+    
+    </div> 
+    <!--header area end-->
+
+
+        <div class="Cor_container">
+            {% comment %} <h3 class="timer">timer : {{T}}</h3> {% endcomment %}
+            {% comment %} <div align="right " id="displaytimer"><b>Timer: 0 seconds</b></div> {% endcomment %}
+
+            
+                <form  class="form" autocomplete="off" action="" method="POST"
+                    >
+                    {% csrf_token %}
+                    {% for q in check%}
+                    <h3 class="qts">{{ forloop.counter }}. } &nbsp {{q.Question}}</h3>
+                    <h7 class ="mks">{{q.marks}}-mark</h7>
+                
+
+
+                    <div class="ans_field" >
+                        <label name="op"  class="opts" value="{{q.Option1}}" >
+                           Option1 : &nbsp&nbsp{{q.Option1}}
+                        </label>
+                    </div>
+
+
+
+                    <div class="ans_field" >  
+                        <label name="op" class="opts" value="{{q.Option2}}">
+                            Option2 : &nbsp&nbsp{{q.Option2}}
+                        </label>
+                    </div>
+
+
+                    <div class="ans_field" >
+                        <label  name="op" class="opts" value="{{q.Option3}}">
+                            Option3 : &nbsp&nbsp{{q.Option3}}
+                        </label>
+                    </div>
+
+
+                    <div class="ans_field" >
+                        <label name="op" class="opts" value="{{q.Option4}}">
+                            Option4 : &nbsp&nbsp{{q.Option4}}
+                        </label>
+                    </div>
+                        
+                    
+
+                        <div class="ans_field">
+                        <label class="sel" name="op1" value="{{q.Selected_Ans}}">
+                           Selected_Answer :&nbsp{{q.Selected_Ans}}
+                        </label>
+                        </div>
+
+
+
+                    <div class="ans_field">
+                        <label name="op2" class="cor">
+                            Correct_Answer :&nbsp {{q.answer}}
+                        </label>
+                    </div>
+
+                        <br>
+                        <br>
+                        <hr>
+        
+                    
+
+                    {% endfor %}
+
+        
+                   
+
+                </form>
+            </div>
+        
+    <script>
+
+
+
+        </script>
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    
+
+    
+</body>
+
+</html>

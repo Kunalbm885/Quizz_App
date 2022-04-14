@@ -17,13 +17,19 @@ admin.site.register(Question,QuestionAdmin)
 
 
 class QuizReportAdmin(admin.ModelAdmin):
-    list_display = ['Student','Quiz_Name', 'Score','Correct','Total']
+    list_display = ['Student','QuizName', 'Score','Correct','Total']
 admin.site.register(QuizReport,QuizReportAdmin)
 
 
 class Answer_BankAdmin(admin.ModelAdmin):
     list_display = ['Student', 'Quiz_Name','Question','Selected_Ans']
 admin.site.register(Answer_Bank,Answer_BankAdmin)
+
+
+
+class AttemptedQuizAdmin(admin.ModelAdmin):
+    list_display = ['isattempted', 'qname','sname','tname']
+admin.site.register(AttemptedQuiz,AttemptedQuizAdmin)
 
 
 

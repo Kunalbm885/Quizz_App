@@ -8,12 +8,15 @@ urlpatterns = [
     #-------------------------------STUDENT--------------------------------------#
     path("taketoSlogin",views.TaketoSlogin,name="taketoSlogin"),
     path("taketoSreg",views.TaketoSregister,name="taketoSreg"),
-    path("taketoSdash",views.TaketoSdash,name="taketoSdash"),
+    path("taketoSdash  <str:pk>",views.TaketoSdash,name="taketoSdash"),
     path("studentregister",views.StudentReg,name="studentreg"),
     path("studentdash",views.StudentDash,name="studentdash"),
-    path("selectcourse",views.SelectCourse,name="selectcourse"),
-    path("taketogivexam <str:pk> <str:eml> ",views.givexam,name="taketogivexam"),
-    path("taketoreportpage",views.ToResultpage,name="taketoreportpage"),
+    # path("selectcourse",views.SelectCourse,name="selectcourse"),
+    path("taketogivexam <str:pk> <str:eml> <str:time> <str:name>",views.givexam,name="taketogivexam"),
+    path("taketoreportpage <str:eml>",views.ToResultpage,name="taketoreportpage"),
+    path("correctansdisp <str:pk> <str:eml>",views.ToAnsPage,name="correctansdisp"),
+    path("selectcourse <str:pk>",views.SelectCourse,name="selectcourse"),
+    path("selectteacher",views.SelectT,name="selectT"),
 
 
 
@@ -27,4 +30,12 @@ urlpatterns = [
     path("makequiz",views.TaketoMakequiz,name="takemakequiz"),
     path("getquizinfo <str:pk>",views.GetQuizInfo,name="getquizinfo"),
     path("getquestion <str:pk> <str:fk>",views.GetQuestions,name="getquestions"),
+    path("taketoPreview <str:pk> <str:fk>",views.GetPreview,name="taketoPreview"),
+    path("emailsend",views.EmailSending,name="emailsend"),
+    path("taketoquiz <str:pk>",views.quiz,name="taketoquiz"),
+    path("taketoattempted <str:pk>",views.attempted,name="taketoattempted"),
+
+
+
+
 ]

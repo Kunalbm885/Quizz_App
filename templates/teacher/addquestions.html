@@ -3,6 +3,8 @@
 <html lang="en" dir="ltr">
 
 <head>
+    <link rel ='icon' href="{% static 'images/logo.png' %}"/>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -16,7 +18,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <meta charset="utf-8">
 
-    <title>QuizzName</title>
+    <title>QuizzUS</title>
 
 </head>
 
@@ -69,6 +71,9 @@
             
 
             <h3>Add Questions</h3>
+            {% comment %} <h3></h3> {% endcomment %}
+            <h3 style="position: absolute;left: 6px;top: 0px; width: 496px;">Quiz Name :&nbsp{{request.session.quizn}}</h3>
+
             <hr>
             <p class="single-form-mks">
                 <label for="marks">Marks</label>
@@ -111,12 +116,13 @@
 
 
            
-            <input class="addqt"type="submit" value="Save / Next ">
+            <input class="addqt"type="submit" value="Next ">
             
         </form>
-        {% comment %} <li>
-        <a href="{% url 'taketoTdash' %}">Home</a>
-        </li> {% endcomment %}
+
+        <li>
+        <a href="{% url 'taketoPreview'  pk=request.session.tename fk=request.session.quizn %}">Review</a>
+        </li>
     </div>
 
 

@@ -3,6 +3,8 @@
 <html lang="en" dir="ltr">
 
 <head>
+    <link rel ='icon' href="{% static 'images/logo.png' %}"/>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css2?family=Lora&family=Poppins:wght@100;200;300;400;600;700&display=swap"
@@ -15,21 +17,44 @@
     <link rel="stylesheet" href="{% static 'css/student.css' %}">
     <meta charset="utf-8">
 
+    <title>QuizzUS</title>
 
 </head>
 
 <body>
+    <div id="time2" value="{{timer}}">{{timer}}</div>
+
 
     <!--header area start-->
     <div class="header">
 
-        <h1>Quizz App Name</h1>
-        
+        <h1 style="left: 10%;">QuizzUS</h1>
+        <img src="{% static 'images/logo.png' %}"  alt="" style="position: relative;width: 101px;left: 3%;top: 7%;">
+
+
+
+    <div   style="position: absolute;color: white;top: 67%;left: 10%;font-size: 26px;font-weight: 600;">
+    </label>Time Left :</label>
+    </div>
+
+    <div id="time"  style="position: absolute;
+    color: white;
+    top: 68%;
+    left: 19%;
+    font-size: 26px;
+    font-weight: 600;">    
+
+
+    </label>00:00</label>
+    </div>
+       
+        {% comment %} <div>Registration closes in <span id="time">05:00</span> minutes!</div> {% endcomment %}
+
         <img src="{% static 'images/student.png' %}" class="profile_image_1" alt="">
         <h4>{{request.session.stuemail}}</h4>
         <h9>{{request.session.stuname}}</h9>
         
-        <a class ="h_link" href="{% url 'taketoSdash' %}">Home</a>
+        <a class ="h_link" href="{% url 'taketoSdash' pk=request.session.stuemail %}">Home</a>
         <a class="l_link" href="{% url 'taketoTlogin' %}">Logout</a>
         </div>
     </div>
@@ -41,7 +66,7 @@
             {% comment %} <div align="right " id="displaytimer"><b>Timer: 0 seconds</b></div> {% endcomment %}
 
             
-                <form  class="form" autocomplete="off" action="" method="POST"
+                <form name="myForm" id = "myForm" class="form" autocomplete="off" action="" method="POST"
                     >
                     {% csrf_token %}
                     {% for q in questions%}
@@ -95,30 +120,65 @@
 
                     {% endfor %}
 
-                    <input id='timer' type='hidden' name="timer" value="">
-                    <input class="submit_btn" id="submitanswer" onclick="submitans()" type="submit" value="Submit">
+        
+                    <input class="submit_btn" id="submitanswer" onclick="SubmitFunction()" type="submit" value="Submit">
 
                 </form>
             </div>
         </div>
+
+
+
+
     <script>
-        {% comment %} console.log('hello world')
-            const timer=document.getElementById('displaytimer')
-            console.log(timer.textContent)
-            const inputtag = document.getElementById('timer')
- 
-            t=${m}
-            setInterval(()=>{
-                t+=1
-                timer.innerHTML ="<b>Timer: " +t+" seconds</b>"
-                inputtag.value = t
-            },1000) {% endcomment %}
-        </script>
+        function startTimer(duration, display) {
+            var timer = duration, minutes, seconds;
+            var interVal=  setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+        
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+        
+                display.textContent = minutes + ":" + seconds;
+        
+                if (timer > 0) {
+                    --timer;
+                 }else{
+            clearInterval(interVal)
+                     SubmitFunction();
+                  }
+            }, 1000);
+        }
+        
+        window.onload = function () {
+            var t =document.getElementById("time2").innerText;
+            console.log(t)
+            var fiveMinutes = 60*t;
+                display = document.querySelector('#time');
+                startTimer(fiveMinutes, display);
+        };
+
+
+        function SubmitFunction(){
+            swal('TimeOut!')
+            //submitted.innerHTML="Time is up!";
+            document.forms["myForm"].submit();
+           }
+
+
+        {% comment %} function doneFunction(){
+            swal('TimeOut!');
+
+            console.log("done !");
+          } {% endcomment %}
+    </script>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     
 </body>

@@ -22,15 +22,13 @@
 <style>
         a.disabled1 {
              pointer-events: none;
-         
+            cursor: pointer;
             color: grey; 
 
 
         }
     .true a {
-
         color:#ff7e7e;
-
     }
 
 
@@ -61,19 +59,19 @@
 
             <img src="{% static 'images/student.png' %}" class="profile_image" alt="">
             
-            <h6>{{request.session.stuname}}</h6>
-            <h4>(Student)</h4>
+            <h6>{{request.session.tename}}</h6>
+            <h4>(Teacher)</h4>
 
         </center>
 
         <ul class="sideitems">
             <li>
-                <a   href="{% url 'taketoSdash'  pk=request.session.stuemail %}">Home</a>
+                <a   href="{% url 'taketoTdash' %}">Home</a>
             </li>
 
-            <li>
+            {% comment %} <li>
                 <a href="{% url 'taketoreportpage' eml=request.session.stuemail %}">Attemped</a>
-            </li>
+            </li> {% endcomment %}
 
             <li>
                 <a  href="/" style="margin-top: 100px;">Logout</a>
@@ -82,15 +80,6 @@
     </div>
 </div>
     <!--sidebar end-->
-    <div>
-        <label>By Prof :{{teachername}} </label>
-    
-    </div >
-    <div>
-        <label  style="position: absolute;top: 15%;left: 36%;font-size: 21px;font-weight: 600;color: #755cc6;"> From Professor :&nbsp{{pk}} </label>
-    
-    </div >
-            
 
     <div class="content">
     
@@ -103,11 +92,8 @@
                                     <tr>
                                         <th scope="col">Sr. No.</th>
                                         <th scope="col">Quiz Name</th>
-
                                         <th scope="col">End_Date</th>
                                         <th scope="col">End_Time</th>
-                                        <th scope="col">QuizTime(mins)</th>
-
 
                                         
 
@@ -120,20 +106,11 @@
                                       
                                     
                                         <th scope="row">{{ forloop.counter }}</th>
-
-                                        <td>
-                                            <a   id="name" href="{% url 'taketogivexam' pk=i.quizname eml=request.session.stuemail time=i.totaltime name=teachername %}" {% for q in s %} {% if q.isattempted == True and q.qname == i.quizname and q.sname == request.session.stuname%} class="disabled1"   {% endif %} {% endfor %}>
-
-                                                {{i.quizname}}
-
-
-                                            </a></td>
-
+                                        {% comment %} <td><a   id="name" href="" {% for q in s %} {% if q.isattempted == True and q.qname == i.quizname %} class="disabled1" img src="{% static 'images/tick.png' %}" {% endif %} {% endfor %}>{{i.quizname}}</a></td> {% endcomment %}
+                                        <td><a   id="name" href="{% url 'taketoattempted' pk=i.quizname %}">{{i.quizname}}</a></td>
 
                                         <td id="duedt">{{i.Duedate}}</td>
                                         <td id="time">{{i.Time}}</td>
-                                        <td id="duedt" style="color:pruple ; font-weight:bold">{{i.totaltime}}&nbsp min(s)</td>
-
 
                                        
                                         
@@ -147,8 +124,9 @@
     </div>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-<script> 
-   
+{% comment %} <script> 
+    
+
    
 
 
@@ -205,13 +183,8 @@
             anchors[i].onclick = function()
 
             {
-                swal({
-                    title: "Oops !",
-                    text: "DUE DATE PASSED !!",
-                    icon: "error",
-                
-                  });   
-                                
+
+                swal("Oops!! You Missed this Quiz\n\n DUE DATE PASSED ....")
                 return false};
 
                 
@@ -230,17 +203,16 @@
     }
 
 
-    
-
-  
 
 
+    $(".disabled1").on('click',function(event){
+        swal("Oops!! You Missed this Quiz\n\n DUE DATE PASSED ....")
 
 
-    
+    })
 
 </script>
-    
+     {% endcomment %}
 
 </body>
 

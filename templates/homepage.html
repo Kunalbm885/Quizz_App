@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel ='icon' href="{% static 'images/logo.png' %}"/>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,15 +15,18 @@
       href="https://fonts.googleapis.com/css2?family=Lora&family=Poppins:wght@100;200;300;400;600;700&display=swap"
       rel="stylesheet"
     />
-    <title>QuizzName</title>
+    <title>QuizzUS</title>
   </head>
 
-  <body>
+  <body style="background:white">
     <header>
       <div class="nav-container">
         <nav>
           <div class="logo">
-            <h1>Quizz App Name</h1>
+            <h1 style="position: absolute;left: 13%;top: 13%;color:#6e2e9d;">QuizzUS</h1>
+            <img src="{% static 'images/logo.png' %}"  alt="" style="position: relative;width: 101px;right: 42%;bottom: -4px;">
+
+            
           </div>
           <ul class="navitems">
             <li>
@@ -38,20 +42,52 @@
         </nav>
       </div>
      
+     
+      <div class="homeimg">
+        <img src="{% static 'images/quiz.png' %}" style="position: relative;width: 600px;left: 938px;top: 200px;" alt="">
+       
 
-      <div class="bg-img">
-        <img src="{% static 'images/Background.png' %}" alt="">
-        <br>
-        <br>
-        <br>
         
-        
-
-        <div class="wel">
-          <h1>Welcome !</h1>
-        </div> 
       </div>
-    </header>
+
+      <div class="wel">
+        <h1 style="position: relative;right: 550px;bottom: 401px;color:#6e2e9d;">Welcome !</h1>
+      </div>
+      <div class="con" style="position: relative;width: 686px;bottom: 375px;/* font-size: 7px; */ ;padding: 13px 10px 10px 94px;
+      background: #fff1ff;
+      border-radius: 20px;    box-shadow: 1px 1px 4px rgb(0 0 0 / 41%);
+      ">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quisquam
+          ipsa aperiam impedit quo a aspernatur non et accusantium?Lorem ipsum dolor 
+          voluptate officia, molestias autem natus quibusdam ipsam aut, dicta,
+          ut repellat sunt odit consequatur non dignissimos illum architecto
+          deserunt. Delectus incidunt fuga nulla consequatur rerum quisquam
+          fugiat sequi perferendis perspiciatis dolorum.
+        </p>
+      </div>
+
+      <div style="position:absolute ; bottom:30% ; left:100px">
+        <a href="{% url 'taketoTreg' %}"  style="position: relative;/* bottom: 80%; */padding: 15px;background: #b274cf;
+        box-shadow: 0px 2px 6px rgb(0 0 0 / 52%);
+        border-radius: 11px;
+        color: rgb(255, 255, 255);
+        font-family: "Poppins" , sans-serif;
+        text-decoration: none;">Register Teacher</a>
+        <a href="{% url 'taketoSreg' %}"  style="position: relative;margin-left:20px;padding: 15px;background: #b274cf;
+        box-shadow: 0px 2px 6px rgb(0 0 0 / 52%);
+        border-radius: 11px;
+        color: rgb(255, 255, 255);
+        font-family: "Poppins" , sans-serif;
+        text-decoration: none;">Register Student</a>
+      </div>
+
+      <div class="bg"  style="position: absolute;bottom: 0%;top: 10%;z-index: -3;/* width: 118%; */">
+        <img src="{% static 'images/bg.png' %}" alt=""  style="width: 115%;position: relative;height: 100vh;/* object-fit: cover; *//* object-position: 20% 10%; */">
+    </div> 
+
+
+    {% comment %} </header>
     <div class = "TContainer">
 
     <div class="T-content">
@@ -106,6 +142,6 @@
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quisquam
         ipsa aperiam impedit quo a aspernatur non et accusantium?
       </p>
-    </div>
+    </div> {% endcomment %}
   </body>
 </html>

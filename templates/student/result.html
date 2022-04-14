@@ -2,3 +2,236 @@
 
 
 
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <link rel ='icon' href="{% static 'images/logo.png' %}"/>
+
+    <title>QuizzUS</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Poppins:wght@100;200;300;400;600;700&display=swap"
+    rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'css/student.css' %}">
+    <meta charset="utf-8">
+<style>
+    a.gg{
+        color: #91349e;
+    
+        text-decoration: none;
+    }
+    .true a {
+        color:#ff7e7e;
+    }
+</style>
+
+</head>
+
+<body>
+
+    <!--header area start-->
+    <div class="nav-container">
+
+        <div class="logo">
+            <h1 style="position: absolute;left: 13%;top: 20%;color:#6e2e9d;font-size: 38px;font-weight: 600;left: 50%;">QuizzUS</h1>
+            <img src="{% static 'images/logo.png' %}"  alt="" style="position: relative;width: 101px;left: 43%;bottom: 9px;">
+
+            
+          </div>    </div>
+   
+
+    <div class="sidebar">
+        <div class ="panel">
+
+        <center>
+
+            <img src="{% static 'images/student.png' %}" class="profile_image" alt="">
+            
+            <h6>{{request.session.stuname}}</h6>
+            <h4>(Student)</h4>
+
+        </center>
+
+        <ul class="sideitems">
+            <li>
+                <a   href="{% url 'taketoSdash'  pk=request.session.stuemail %}">Home</a>
+            </li>
+
+           
+
+            <li>
+                <a  href="/" style="margin-top: 100px;">Logout</a>
+            </li>
+
+    </div>
+</div>
+    <!--sidebar end-->
+<h1 style="position: absolute;top: 14%;left: 36%;">Attempted_Quiz</h1>
+
+
+
+   
+
+
+
+    <div class="content">
+    
+        <div class="row" id ="row">
+            
+                        <table name ="mytab"class="table " id ="tab">
+            
+
+                            <thead bgcolor = "#a721e6e8" >
+                                <tr>
+                                    <th scope="col">Sr. No.</th>
+                                    <th scope="col">Quiz Name</th>
+
+                                    <th scope="col">Activedate</th>
+                                    <th scope="col">Acyivetime</th>
+                                    <th scope="col">Score</th>
+
+
+                                    
+
+                                </tr>
+                            </thead>
+                            
+                            <tbody>
+                                {% for i in p %}
+                                <tr>
+                                  
+                                
+                                    <th scope="row">{{ forloop.counter }}</th>
+
+
+                                    <td> 
+                                        <a id="name" href="{% url 'correctansdisp' pk=i.QuizName eml=request.session.stuemail %}">
+                                            {{i.QuizName}}</a>
+                                    </td>
+
+                                    <td id="duedt">{{i.Date}}</td>
+                                    <td id="time">{{i.Time}}</td>
+
+
+                                    <td id="duedt">{{i.Score}}/{{i.Total_Marks}}</td>
+                                    {% comment %} <td id="time">{{i.Time}}</td> {% endcomment %}
+
+                                   
+                                    
+                                </tr>
+                                
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                 
+        </div>
+</div>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+<script> 
+       
+    for ( let [i,row] of [...tab.rows].entries() ) 
+    {
+        for( let [j,cell] of [...row.cells].entries() ) 
+        {
+        }
+        var actdate=document.getElementById("tab").rows[i].cells[2].innerText;
+        var quizname=document.getElementById("tab").rows[i].cells[1].innerText;
+        var acttime=document.getElementById("tab").rows[i].cells[3].innerText;
+
+        console.log(quizname)
+        console.log(actdate)
+        console.log(acttime)
+
+
+       
+        var date = new Date();
+        var cdate = date.getDate();
+        if(cdate <10){
+            cdate = '0' +cdate;
+        }
+        var month = date.getMonth() + 1;
+        if(month <10){
+            month = '0' +month;
+        }
+        var year = date.getUTCFullYear();
+        var todayDate = year +"-"+month +"-"+ cdate;
+
+
+        var chr = date.getHours();
+        if(chr<10){
+            chr = '0' +chr;
+        }
+        var min = date.getMinutes();
+        if(min<10){
+            min = '0' +min;
+        }
+        var ttime = chr +":"+min;
+        console.log(ttime);
+
+
+        console.log(todayDate);
+        
+
+        if(todayDate<=actdate && ttime<acttime){
+            
+            var test3=document.getElementById("tab").rows[i].cells[1].setAttribute('class','true');
+           // var  displaydate=document.getElementById("tab").rows[i].cells[2].innerText
+
+            console.log(test3)
+            //console.log(displaydate)
+
+           window.onload = function(){
+            var anchors = document.querySelectorAll("[class=true]");
+           
+    
+            for(var i = 0; i<anchors.length ; i++){
+           // var  displaydate=document.getElementById("tab").rows[i].cells[2].innerText
+
+            anchors[i].onclick = function()
+
+            {
+
+                swal({
+                    title: "Oops !",
+                    text: "Oo Stree Kal Aana",
+                    icon: "info",
+                  });                
+                  return false};
+            }
+            };
+
+            console.log(`Due Date Not Passed`)    
+
+        }
+
+
+        console.log(`.........`)
+        console.log(`.........`)
+
+    }
+
+
+
+
+   
+                
+ </script>>
+    
+
+
+    
+</body>
+
+</html>

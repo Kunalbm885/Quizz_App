@@ -3,17 +3,51 @@
 <html lang="en" dir="ltr">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Poppins:wght@100;200;300;400;600;700&display=swap"
-    rel="stylesheet">
+    <link rel ='icon' href="{% static 'images/logo.png' %}"/>
+    
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://fonts.googleapis.com/css2?family=Lora&family=Poppins:wght@100;200;300;400;600;700&display=swap"
+        rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <link href="http://netdna.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        {% comment %} <link rel="stylesheet" href="{% static 'css/teacher.css' %}"> {% endcomment %}
+        <link rel="stylesheet" href="{% static 'css/teacher.css' %}">
+    
+        <meta charset="utf-8">
+        <title>QuizzUS</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/student.css' %}">
-    <meta charset="utf-8">
+        <style>
+            label{
+                color:purple;
+                position: relative;
+                top: 46%;
+                left: 25px;
+            }
+            strong {
+                font-weight: bolder;
+                font-size: 19px;
+                color: purple;
+            }
+            .card{
+                -webkit-box-shadow: 0 1px 2.94px 0.06px rgb(4 26 55 / 16%);
+                box-shadow: 0 1px 2.94px 0.06px rgb(4 26 55 / 16%);
+                /* border: 1px solid black; */
+                height: 350px;
+                /* width: 270px; */
+                margin-bottom: 30px;
+                -webkit-transition: all 0.3s ease-in-out;
+                transition: all 0.3s ease-in-out;
+            }
+
+            .card .card-block {
+                padding: 0px 0px 0px 25px;
+                position: relative;
+                top: 43%;
+            }
+        </style>
 
 
 </head>
@@ -23,7 +57,12 @@
     <!--header area start-->
     <div class="nav-container">
 
-        <h2>Quizz App Name</h2>
+        <div class="logo">
+            <h1 style="position: absolute;left: 13%;top: 20%;color:#6e2e9d;font-size: 38px;font-weight: 600;left: 50%;">QuizzUS</h1>
+            <img src="{% static 'images/logo.png' %}"  alt="" style="position: relative;width: 101px;left: 43%;bottom: 9px;">
+
+            
+          </div>
     </div>
     <!--header area end-->
   
@@ -42,11 +81,11 @@
 
         <ul class="sideitems">
             <li>
-                <a   href="{% url 'selectcourse' %}">Take Quiz</a>
+                <a   href="{% url 'selectT' %}">Take Quiz</a>
             </li>
 
             <li>
-                <a href="{% url 'taketoreportpage'%}">Reports</a>
+                <a href="{% url 'taketoreportpage'  eml=request.session.stuemail%}">Attempted</a>
             </li>
 
             <li>
@@ -59,31 +98,76 @@
 
     <div class="Result_content">
       
-        <h1>Result / Report</h1>
+        <h1>Result </h1>
         <hr >
         
     
 
-        <div class="C_container">
+        {% comment %} <div class="C_container">
 
             <div class="card">
               <img src="{% static 'images/notepad.png' %}" class="profile_image_2" alt="">
-              {% comment %} {% for i in R %} {% endcomment %}
+              
                 <h3 class="card-title">Quiz Name : {{R.Quiz_Name}}</h3>
                 <hr>
-                <h5 class="card-title">Score : {{R.Score}}</h5>
+                <h5 class="card-title">Score : {{R.Score}} / {{R.Total_Marks}}</h5>
                 <div class="card-body">
                 <p class="card-text">Percentage : {{R.Percentage}}%</p>
                 <p class="card-text">Correct answers : {{R.Correct}}</p>
                 <p class="card-text">Incorrect answers : {{R.Incorrect}}</p>
                 <p class="card-text">Total questions : {{R.Total}}</p>
-                {% comment %} {% endfor %} {% endcomment %}
+        
               </div>
             </div>
             
+        </div> {% endcomment %}
+    </div>
+    <h1 style="position: absolute;top: 16%;width: 60%;left: 32%;color: #9758c6;"  >Report :</h1>
+
+    <hr  style="position: absolute;top: 21%;width: 60%;left: 32%;/* border: 77px black; */">
+
+
+
+
+
+    <div class="content">
+        <div class="container" >
+            <div class="row">
+                {% for i in c %}
+                <div class="col-md-4 col-xl-3" style="position:relative ; top:25px" >
+                    <div class="card bg-c-yellow order-card" >
+                        <img src="{% static 'images/approved.png' %}" class="teacherimg" style=" position: absolute;
+                        width: 140px;
+                        left: 66px;
+                        top: 9px;" alt=""> 
+                        
+
+                        <div class="card-block">
+                            <strong class="m-b-20">Quiz :&nbsp&nbsp{{i.QuizName}}</strong>
+                            
+                            {% comment %} <hr> {% endcomment %}
+
+                            {% comment %} <label class="sub"  style="position: relative;color: #8a82ea;font-size: 14px;font-weight: bold;">Subject :&nbsp&nbsp{{i.Subject}}</label> {% endcomment %}
+
+                        </div>
+                        <label class="m-b-20">Score :&nbsp&nbsp{{i.Score}}/{{i.Total_Marks}}</label>
+
+                        {% comment %} <label>prof :&nbsp&nbsp{{tname}}</label> {% endcomment %}
+
+                        <label >Percentage :&nbsp&nbsp{{i.Percentage}}%</label>
+                        <label >Correct Ans :&nbsp&nbsp{{i.Correct}}</label>
+                        <label >Incorrect :&nbsp&nbsp{{i.Incorrect}}</label>
+
+
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
-    <hr>
+
+
+
 
     <script src = "{% static 'css/app.js' %}"></script>
 

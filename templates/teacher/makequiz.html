@@ -3,6 +3,8 @@
 <html lang="en" dir="ltr">
 
 <head>
+    <link rel ='icon' href="{% static 'images/logo.png' %}"/>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -14,7 +16,7 @@
    
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <meta charset="utf-8">
-    <title>QuizzName</title>
+    <title>QuizzUS</title>
 
 
 </head>
@@ -49,7 +51,7 @@
                     </li>
         
                     <li>
-                        <a href="/student/student-marks">Reports</a>
+                        <a href="{% url 'taketoquiz' pk=request.session.tename %}">Reports</a>
                     </li>
         
                     <li>
@@ -67,10 +69,15 @@
                 <label for="quiz name">Quiz Name</label><input type="text" name="quizname" id="quiz name" required>
                 
             </p>
-             {% comment %} <p class="single-form">
-                <label for="time">Total Time (mins)</label><input type="text" name="time" id="time" required>
+            
+            <p class="single-form">
+                <label for="marks">Number of Questions</label><input type="no" name="no" id="no" required>   
+            </p>
+
+            <p class="single-form">
+                <label for="time">Total Time (mins)</label><input type="text" name="tottime" id="tottime" required>
                 
-            </p> {% endcomment %}
+            </p>
 
             <p class="single-form">
                 <label for="marks">End Date</label><input type="Date" name="date" id="DATE" required>

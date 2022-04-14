@@ -14,6 +14,16 @@ body{
 
 } 
 
+
+
+
+  
+  
+  
+ 
+  
+  
+
 /* hr{
     border: 2px black;
 } */
@@ -33,7 +43,7 @@ position: relative;
     background-repeat: no-repeat;
 background-size: cover;
 position: relative;
-filter: blur(10px);
+
 border: black;
 box-shadow: 0px 9px 7px rgb(0 0 0 / 60%);
 }
@@ -173,9 +183,9 @@ nav ul{
     cursor: pointer;
     outline: none;
     
-    color: #043f17;
+    /* color: #043f17; */
     padding: 4px 10px;
-background: #6422cd;
+background: #b274cf;;
 box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.52);
 border-radius: 30px;
     color: rgb(255, 255, 255);
@@ -190,7 +200,7 @@ border-radius: 30px;
     
     color: #043f17;
     padding: 4px 10px;
-background: #6422cd;
+background: #b274cf;;
 box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.52);
 border-radius: 30px;
     color: rgb(255, 255, 255);
@@ -229,6 +239,12 @@ box-shadow: 0px 9px 7px rgb(0 0 0 / 60%);
     top: 28%;
     left:30%; 
     background: rgba(144, 113, 206, 0.541);
+    /* background: linear-gradient(
+        158.53deg,
+        #3e046b 2.21%,
+        rgba(128, 20, 214, 0.94) 49.45%,
+        rgba(130, 28, 166, 0.94) 99.11%
+      ); */
     box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.41);
     border-radius: 15px;
 }
@@ -278,7 +294,7 @@ box-shadow: 0px 9px 7px rgb(0 0 0 / 60%);
     margin: 24px 295px;
     color: white;
     padding: 10px 12px;
-background: #6422cd;
+background: #b274cf;
 box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.52);
 border-radius: 30px;
 }
@@ -386,7 +402,7 @@ box-shadow: 0px 9px 7px rgb(0 0 0 / 60%);
     margin: 19px 86px -4px 258px;
     color: white;
     padding: -5px 12px;
-    background: #6422cd;
+    background: #b274cf;
     box-shadow: 0px 5px 10px rgb(0 0 0 / 52%);
     border-radius: 30px;
 }
@@ -462,7 +478,7 @@ box-shadow: 0px 9px 7px rgb(0 0 0 / 60%);
 
     font-size: 35px;
     font-family: "Poppins",sans-serif;
-    padding: 35px 77px 32px 148px;
+    padding: 12px 77px 0px 148px;
 
 }
  .img {
@@ -494,7 +510,7 @@ box-shadow: 0px 9px 7px rgb(0 0 0 / 60%);
 }
 .textfield_T{
     width: 100%;
-    padding: 7px 25px;
+    padding: 16px 25px;
 }
 .textfield_T input{
 
@@ -519,6 +535,8 @@ box-shadow: 0px 9px 7px rgb(0 0 0 / 60%);
 }
 
 .regT-button{
+    position: relative;
+    bottom: 27px;
     border: none;
     cursor: pointer;
     outline: none;
@@ -527,7 +545,7 @@ box-shadow: 0px 9px 7px rgb(0 0 0 / 60%);
     margin: 35px 86px 19px 279px;
     color: white;
     padding: -5px 12px;
-    background: #6422cd;
+    background: #b274cf;
     box-shadow: 0px 5px 10px rgb(0 0 0 / 52%);
     border-radius: 30px;
 }
@@ -656,7 +674,7 @@ border-radius: 30px;
     width: 703px;
     height: 437px;
 
-    top: 28%;
+    top: 15%;
     left:33%; 
    
 }
@@ -685,7 +703,7 @@ border-radius: 30px;
     width:100%;
     position: relative;
     left: 120px;
-    margin-bottom: 25px;
+    margin-bottom: -15px;
 }
 .single-form-mks{
     position: absolute;
@@ -742,7 +760,9 @@ border-radius: 30px;
     width: 57%;
     margin: -10px -24px -49px 21px;
     font-family: "Poppins" , sans-serif;
-    border-color: #510077bb;
+    /* border-color: #510077bb; */
+    border-color: #a721e6e8;
+
     background: rgb(255, 255, 255);
     /* box-shadow: rgb(0 0 0 / 45%) 1px 5px 5px inset; */
     border-radius: 15px;

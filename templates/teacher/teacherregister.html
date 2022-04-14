@@ -3,13 +3,15 @@
 <html lang="en">
 
 <head>
+    <link rel ='icon' href="{% static 'images/logo.png' %}"/>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Lora&family=Poppins:wght@100;200;300;400;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>QuizzName</title>
+    <title>QuizzUS</title>
 </head>
 
 <body>
@@ -17,9 +19,11 @@
         <div class="nav-container">
             <nav>
                 <div class="logo">
-                    <h1> Quizz App Name
-                    </h1>
-                </div>
+                    <h1 style="position: absolute;left: 13%;top: 13%;color:#6e2e9d;">QuizzUS</h1>
+                    <img src="{% static 'images/logo.png' %}"  alt="" style="position: relative;width: 101px;right: 42%;bottom: -4px;">
+        
+                    
+                  </div>
                 <ul class="navitems">
                     <li>
                         <a href="{% url 'homepage' %}">Home</a>
@@ -33,9 +37,9 @@
                 </ul>
             </nav>
         </div>
-        <div class="bg1-img">
+        {% comment %} <div class="bg1-img">
             <img src="{% static 'images/Background.png' %}" alt="">
-        </div>
+        </div> {% endcomment %}
 
 
     </header>
@@ -43,27 +47,31 @@
 
         <form action="{% url 'teacherreg' %}" method="post">
             {% csrf_token %}
-            {% if msg %}
+            {% comment %} {% if msg %}
             <h1 style="color: red;">{{msg}}</h1>
-            {% endif %}
+            {% endif %} {% endcomment %}
             <div class="fields">
                 <h1>Teacher Registration !</h1>
                 <div class="textfield_T">
                     <label>Name:</label><input type="text" name="tname" placeholder="Enter your Name"
-                        autocomplete="off">
+                        autocomplete="off" required>
                 </div>
                 <div class="textfield_T">
                     <label>Email-id:</label><input type="email" name="temail" id="emailid"
-                        placeholder="Enter your Email_id" autocomplete="off">
+                        placeholder="Enter your Email_id" autocomplete="off" required>
                 </div>
+                {% comment %} <div class="textfield_T">
+                    <label>Subject:</label><input type="text" name="subject" id="subject"
+                        placeholder="Subject Name" autocomplete="off" required>
+                </div> {% endcomment %}
                 <div class="textfield_T">
                     <label>Password:</label><input type="password" name="tpass" placeholder="Create Password"
-                        autocomplete="off">
+                        autocomplete="off" required>
                 </div>
 
                 <div class="textfield_T">
                     <label>Confirm Password:</label><input type="password" name="tcpass" id="cnfpassword"
-                        placeholder="Confirm Password">
+                        placeholder="Confirm Password" required>
                 </div>
                 <button class="regT-button" type="submit">Create Account</button>
             </div>
@@ -76,22 +84,19 @@
     </div>
 
 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
-        jQuery( function( $ ) { 
-            $('form').on( 'submit', function( oEvent ) { 
-                if (   !document.getElementById('one1').checked   
-                &&   !document.getElementById('one2').checked 
-                &&   !document.getElementById('one3').checked
-                &&   !document.getElementById('one4').checked) 
-                {
-                    oEvent.preventDefault(); 
-                    alert('Please select the Radio button with Correct option !!');
-                }
-            } )
-        } );
-        
-    </script>
+    
+        {% if msg %}
 
+        swal('{{msg}}');
+
+       
+        {% endif %}
+
+        
+    
+    </script>
 </body>
 
 </html>
