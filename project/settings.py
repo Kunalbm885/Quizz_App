@@ -80,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'quizapp',
         'USER': 'root',
-        'PASSWORD': 'KUNAL2002',
+        'PASSWORD': 'root123',
         'HOST': 'localhost',
         'PORT': '3306',
     }

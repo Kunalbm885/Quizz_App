@@ -78,13 +78,8 @@ def StudentDash(request):
 
 
                 c=QuizReport.objects.all().filter(Student=studentemail)
-                print(c)
-                for i in c:
-                    email =i.Teacher
-
-                name3= Teacher.objects.get(teacheremail=email)
-
-                return render(request, "student/studentdash.html",{'c':c , 'tname':name3})
+               
+                return render(request, "student/studentdash.html",{'c':c})
             else:
                 message = "Password is Incorrect"
                 return render(request, "student/studentlogin.html", {'msg': message})

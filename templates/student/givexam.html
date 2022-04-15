@@ -66,8 +66,7 @@
             {% comment %} <div align="right " id="displaytimer"><b>Timer: 0 seconds</b></div> {% endcomment %}
 
             
-                <form name="myForm" id = "myForm" class="form" autocomplete="off" action="" method="POST"
-                    >
+                <form name="myForm" id = "myForm" class="form" autocomplete="off" action="" method="POST">
                     {% csrf_token %}
                     {% for q in questions%}
                     <h3 class="qts">{{ forloop.counter }}. } &nbsp {{q.question}}</h3>
