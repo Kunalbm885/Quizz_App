@@ -34,8 +34,6 @@ urlpatterns = [
     path("emailsend",views.EmailSending,name="emailsend"),
     path("taketoquiz <str:pk>",views.quiz,name="taketoquiz"),
     path("taketoattempted <str:pk>",views.attempted,name="taketoattempted"),
-
-
-
-
+    path("taktoUpdateDue <str:pk> <str:fk>",views.TakeToUD,name="taketoUD"),
+    path("UpdateDetails <str:pk> <str:fk>",views.UpdateQuizDetails,name="updatedetails"),
 ]

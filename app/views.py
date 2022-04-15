@@ -3,6 +3,7 @@ from asyncio.windows_events import NULL
 from email import message
 from multiprocessing import context
 import numbers
+from turtle import up
 from typing import Counter
 from django.shortcuts import redirect, render
 import os
@@ -448,3 +449,20 @@ def attempted(request,pk):
                  print('none')
 
     return render(request,"teacher/attempted.html" ,{'s':stud ,'c':c ,'pk':pk})
+
+def TakeToUD(request,pk,fk):
+    u = QuizInfo.objects.get(teacherassigname=pk,quizname=fk)
+    return render(request,"teacher/updatedue.html",{'teaname':pk,'uquizname':fk,'u':u})
+
+def UpdateQuizDetails(request,pk,fk):
+    p = pk
+    update = QuizInfo.objects.get(teacherassigname=pk,quizname=fk)
+    update.noofquest = request.POST['no']
+    update.totaltime = request.POST['tottime']
+    update.Duedate = request.POST['date']
+    update.Time = request.POST['time']
+
+    update.save()
+
+    # return render(request,"teacher/quiz.html")
+    return redirect('taketoquiz',pk=p)

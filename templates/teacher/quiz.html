@@ -94,7 +94,7 @@
                                         <th scope="col">Quiz Name</th>
                                         <th scope="col">End_Date</th>
                                         <th scope="col">End_Time</th>
-
+                                        <th scope="col">Change</th>
                                         
 
                                     </tr>
@@ -111,7 +111,7 @@
 
                                         <td id="duedt">{{i.Duedate}}</td>
                                         <td id="time">{{i.Time}}</td>
-
+                                        <td><a href="{% url 'taketoUD' pk=request.session.tename fk=i.quizname%}">Change Due</a></td>
                                        
                                         
                                     </tr>
