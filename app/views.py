@@ -79,12 +79,9 @@ def StudentDash(request):
 
                 c=QuizReport.objects.all().filter(Student=studentemail)
                 print(c)
-                for i in c:
-                    email =i.Teacher
+               
 
-                name3= Teacher.objects.get(teacheremail=email)
-
-                return render(request, "student/studentdash.html",{'c':c , 'tname':name3})
+                return render(request, "student/studentdash.html",{'c':c})
             else:
                 message = "Password is Incorrect"
                 return render(request, "student/studentlogin.html", {'msg': message})
@@ -156,6 +153,7 @@ def givexam(request, pk,eml ,time , name):
                   Student=eml,Question=q.question,Selected_Ans=ans,Quiz_Name=pk,Option1=q.option1,Option2=q.option2,Option3=q.option3,Option4=q.option4,answer=q.answer,marks=q.marks,Teacher=name)
 
         percent = score/(total*q.marks) *100
+        percent = '{:.2f}'.format(percent)
 
 
        
@@ -166,31 +164,31 @@ def givexam(request, pk,eml ,time , name):
         {'wrong':wrong}
         {'percent':percent}
         {'total':total}
-        
+
+
+     
         
         rep = QuizReport.objects.create(
-                Student=eml, QuizName=pk, Score=score, Correct=correct , Incorrect=wrong , Total=total , Percentage = percent ,Total_Marks = tot,Teacher=name ,Date=date,Time=time2 )
+                Student=eml, QuizName=pk, Score=score, Correct=correct , Incorrect=wrong , Total=total , Percentage = percent ,Total_Marks = tot,Teacher=name ,Date=date,Time=time2 ,TeacherName=name2)
         c=QuizReport.objects.all().filter(Student=eml)
-        for i in c:
-            email1 =i.Teacher
+       
 
-        name3= Teacher.objects.get(teacheremail=email1)
-
-        return render(request,'student/studentdash.html'  ,{'R':rep ,'c':c ,'tname':name3})
+        return render(request,'student/studentdash.html'  ,{'R':rep ,'c':c })
 
     
     else:
-        print(name2)
-        number=QuizInfo.objects.get(quizname=pk ,teacherassigname=name2  )
-        # for i in number:
-        numb= int(number.noofquest)
-        questions = list(Question.objects.all().filter(quiznameques=pk,Teacher=name2))
 
-        r = random.sample(questions,numb)  
-        print(r) 
+     print(name2)
+        # for i in number:
+    number=QuizInfo.objects.get(quizname=pk ,teacherassigname=name2  )
+    numb= int(number.noofquest)
+    questions = list(Question.objects.all().filter(quiznameques=pk,Teacher=name2))
+
+    r = random.sample(questions,numb)  
+    print(r) 
         
         # print(questions)
-        return render(request,'student/givexam.html',{'questions': r ,'time':time ,'timer':timer})
+    return render(request,'student/givexam.html',{'questions': r ,'time':time ,'timer':timer})
 
 
     
@@ -207,9 +205,9 @@ def ToResultpage(request,eml):
     return render(request, "student/result.html",{'p':p })
 
 
-def ToAnsPage(request,pk,eml):
-    check2 = QuizReport.objects.all().filter(QuizName=pk,Student=eml)
-    check = Answer_Bank.objects.all().filter(Quiz_Name=pk,Student=eml)
+def ToAnsPage(request,pk,eml ,tename):
+    check2 = QuizReport.objects.all().filter(QuizName=pk,Student=eml,Teacher=tename)
+    check = Answer_Bank.objects.all().filter(Quiz_Name=pk,Student=eml , Teacher=tename)
     
 
     print(check)
@@ -434,22 +432,45 @@ def attempted(request,pk):
     stud = Student.objects.all()
     c = QuizReport.objects.all().filter(Teacher=email , QuizName=pk )
     print(c)
+    print(stud)
 
-    for s in stud:
-         print(s)
-        #  print(c)
+    # for s in stud:
+    #      print(s)
+    #     #  print(c)
        
 
-         for i in c:
-             print(i)
-             if  i.Student == s.studentemail  and i.QuizName == pk :
-                 print('Attempted')
+    #      for i in c:
+    #          print(i)
+    #          if  i.Student == s.studentemail  and i.QuizName == pk :
+    #              print('Attempted')
 
-             elif i.QuizName=="" and i.Student == s.studentemail:
-                 print('Not Attempted')
-             elif i.QuizName=="" and i.Student == "":
-                 print('Not Attempted')
-             else:
-                 print('none')
+    #          elif i.QuizName=="" and i.Student == s.studentemail:
+    #              print('Not Attempted')
+    #          elif i.QuizName=="" and i.Student == "":
+    #              print('Not Attempted')
+    #          else:
+    #              print('none')
 
     return render(request,"teacher/attempted.html" ,{'s':stud ,'c':c ,'pk':pk})
+
+
+
+
+
+
+
+def TakeToUD(request,pk,fk):
+    u = QuizInfo.objects.get(teacherassigname=pk,quizname=fk)
+    return render(request,"teacher/updatedue.html",{'teaname':pk,'uquizname':fk,'u':u})
+
+def UpdateQuizDetails(request,pk,fk):
+    p = pk
+    update = QuizInfo.objects.get(teacherassigname=pk,quizname=fk)
+    update.noofquest = request.POST['no']
+    update.totaltime = request.POST['tottime']
+    update.Duedate = request.POST['date']
+    update.Time = request.POST['time']
+
+    update.save()
+
+    return redirect('taketoquiz',pk=p)

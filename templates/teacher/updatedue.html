@@ -1,0 +1,147 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <link rel='icon' href="{% static 'images/logo.png' %}" />
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Poppins:wght@100;200;300;400;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/teacher.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <meta charset="utf-8">
+    <title>QuizzUS</title>
+
+
+
+    <style>
+        .card {
+            -webkit-box-shadow: 0 1px 2.94px 0.06px rgb(4 26 55 / 16%);
+            box-shadow: 0 1px 2.94px 0.06px rgb(4 26 55 / 16%);
+            /* border: 1px solid black; */
+            height: 81px;
+            /* width: 270px; */
+            margin-bottom: 30px;
+            -webkit-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .card .card-block {
+            padding: 0px 0px 0px 25px;
+            position: relative;
+            top: 19px;
+        }
+
+        .l{
+            margin: 0px 0px 0px 0px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <!--header area start-->
+    <div class="nav-container">
+
+        <div class="logo">
+            <h1 style="position: absolute;left: 13%;top: 20%;color:#6e2e9d;font-size: 38px;font-weight: 600;left: 50%;">
+                QuizzUS</h1>
+            <img src="{% static 'images/logo.png' %}" alt=""
+                style="position: relative;width: 101px;left: 43%;bottom: 9px;">
+
+
+        </div>
+    </div>
+    <!--header area end-->
+    <h2 style="position: absolute;left: 37%;/* bottom: 10px; */top: 111px;color: #8052ba;">Update Quiz Details:</h2>
+    <hr style="position: relative;top: 150px;width: 63%;left: 33%;">
+
+    <!--sidebar start-->
+    <div class="sidebar">
+        <div class="panel">
+
+            <center>
+
+                <img src="{% static 'images/teacher.png' %}" class="profile_image" alt="">
+
+                <h6>{{request.session.tename}}</h6>
+                <h4>(teacher)</h4>
+
+            </center>
+
+
+
+            <ul class="sideitems">
+                <li>
+                    <a href="{% url 'takemakequiz' %}">Create Quiz</a>
+                </li>
+
+                <li>
+                    <a href="{% url 'taketoquiz' pk=request.session.tename %}">Reports</a>
+                </li>
+
+                <li>
+                    <a href="/" style="margin-top: 100px;">Logout</a>
+                </li>
+
+        </div>
+    </div>
+    <!--sidebar end-->
+    <div class="form-area">
+        <form action="{% url 'updatedetails' pk=teaname fk=uquizname%}" method="post">
+            {% csrf_token %}
+
+            <p class="single-form">
+                <label class="l" style="margin: 0px 0px 0px 0px;margin-top: 60px;padding-bottom: 0px;" for="marks">Number of Questions</label><input style="margin-left: 70px;" type="no" name="no" id="no" value="{{u.noofquest}}"
+                    required>
+            </p>
+
+            <p class="single-form">
+                <label class="l" style="margin: 0px 0px 0px 0px;padding-bottom: 0px;" for="time">Total Time (mins)</label><input type="text" style="margin-left: 70px;" value="{{u.totaltime}}" name="tottime"
+                    id="tottime" required>
+
+            </p>
+
+            <p class="single-form">
+                <label class="l" style="margin: 0px 0px 0px 0px;padding-bottom: 0px;" for="marks">End Date</label><input style="margin-left: 70px;" type="Date" name="date" value="{{u.Duedate}}" id="DATE"
+                    required>
+
+            </p>
+
+            <p class="single-form">
+                <label class="l" style="margin: 0px 0px 0px 0px;padding-bottom: 0px;" for="quiz name">Quiz End Time</label><input style="margin-left: 70px;" type="time" value="{{u.Time}}" name="time" id="time"
+                    required>
+
+            </p>
+            <input class="bnt" type="submit" value="Submit">
+            <!-- <a href="addQue.html">Submit</a> -->
+        </form>
+
+    </div>
+    <script>
+        var date = new Date();
+        var cdate = date.getDate();
+        if (cdate < 10) {
+            cdate = '0' + cdate;
+        }
+        var month = date.getMonth() + 1;
+        if (month < 10) {
+            month = '0' + month;
+        }
+        var year = date.getUTCFullYear();
+        var minDate = year + "-" + month + "-" + cdate;
+        document.getElementById("DATE").setAttribute('min', minDate);
+        console.log(minDate);
+    </script>
+</body>
+
+</html>

@@ -19,6 +19,15 @@
     <title>QuizzUS</title>
 
 <style>
+    .green{
+       
+        background: #8def8d;
+        padding: 8px 10px;
+        width: 100%;
+        border-radius: 5px;
+        box-shadow: 1px 3px 4px rgb(0 0 0 / 25%);
+
+        }
     .corheader strong {
         position: absolute;
     text-align: center;
@@ -67,7 +76,7 @@
 
 
                     <div class="ans_field" >
-                        <label  >
+                        <label  {% if s.option1 == s.answer %} class="green"{% endif %}>
                            Option1 : &nbsp&nbsp{{s.option1}}
                         </label>
                     </div>
@@ -75,40 +84,36 @@
 
 
                     <div class="ans_field" >  
-                        <label >
+                        <label {% if s.option2 == s.answer %} class="green"{% endif %}>
                             Option2 : &nbsp&nbsp{{s.option2}}
                         </label>
                     </div>
 
 
                     <div class="ans_field" >
-                        <label>
+                        <label {% if s.option3 == s.answer %} class="green"{% endif %}>
                             Option3 : &nbsp&nbsp{{s.option3}}
                         </label>
                     </div>
 
 
                     <div class="ans_field" >
-                        <label>
+                        <label {% if s.option4 == s.answer %} class="green"{% endif %}>
                             Option4 : &nbsp&nbsp{{s.option4}}
                         </label>
                     </div>
                         
                     
 
-                        {% comment %} <div class="ans_field">
-                        <label class="sel" name="op1" value="{{q.Selected_Ans}}">
-                           Selected_Answer :&nbsp{{q.Selected_Ans}}
-                        </label>
-                        </div> {% endcomment %}
+                       
 
 
 
-                    <div class="ans_field">
+                    {% comment %} <div class="ans_field">
                         <label name="op2" class="cor">
                             Correct_Answer :&nbsp {{s.answer}}
                         </label>
-                    </div>
+                    </div> {% endcomment %}
 
                         <br>
                         <br>

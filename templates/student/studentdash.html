@@ -24,12 +24,18 @@
                 color:purple;
                 position: relative;
                 top: 46%;
-                left: 25px;
+                {% comment %} left: 25px; {% endcomment %}
+                font-size: 14px;
+                text-align: center;
+
+
             }
             strong {
                 font-weight: bolder;
                 font-size: 19px;
                 color: purple;
+                text-align: center;
+
             }
             .card{
                 -webkit-box-shadow: 0 1px 2.94px 0.06px rgb(4 26 55 / 16%);
@@ -43,9 +49,13 @@
             }
 
             .card .card-block {
-                padding: 0px 0px 0px 25px;
+                {% comment %} padding: 0px 0px 0px 25px; {% endcomment %}
+                padding: 0px 0px 0px 0px;
+
                 position: relative;
                 top: 43%;
+                text-align: center;
+
             }
         </style>
 
@@ -143,20 +153,28 @@
                         
 
                         <div class="card-block">
-                            <strong class="m-b-20">Quiz :&nbsp&nbsp{{i.QuizName}}</strong>
+                            <hr style="border-top: 3px solid #ae63ae;
+                            margin: 4px 0px 0px 0px;">
+
+                            <strong class="m-b-20" >Quiz :&nbsp&nbsp{{i.QuizName}}</strong>
+                            <hr style="border-top: 3px solid #ae63ae;
+                            margin: 4px 0px 0px 0px;">
+
                             
                             {% comment %} <hr> {% endcomment %}
 
                             {% comment %} <label class="sub"  style="position: relative;color: #8a82ea;font-size: 14px;font-weight: bold;">Subject :&nbsp&nbsp{{i.Subject}}</label> {% endcomment %}
 
                         </div>
+                        <label style="font-weight: bold;
+                        ">Quiz By :&nbsp&nbsp{{i.TeacherName}}</label>
+
                         <label class="m-b-20">Score :&nbsp&nbsp{{i.Score}}/{{i.Total_Marks}}</label>
 
-                        {% comment %} <label>prof :&nbsp&nbsp{{tname}}</label> {% endcomment %}
 
                         <label >Percentage :&nbsp&nbsp{{i.Percentage}}%</label>
                         <label >Correct Ans :&nbsp&nbsp{{i.Correct}}</label>
-                        <label >Incorrect :&nbsp&nbsp{{i.Incorrect}}</label>
+                        <label >Incorrect Ans:&nbsp&nbsp{{i.Incorrect}}</label>
 
 
                     </div>

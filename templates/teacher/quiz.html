@@ -83,7 +83,7 @@
 
     <div class="content">
     
-            <div class="row" id ="row">
+            <div class="row" id ="row" style="background :white">
                 
                             <table name ="mytab"class="table " id ="tab">
                 
@@ -94,6 +94,8 @@
                                         <th scope="col">Quiz Name</th>
                                         <th scope="col">End_Date</th>
                                         <th scope="col">End_Time</th>
+                                        <th scope="col">Update</th>
+
 
                                         
 
@@ -111,6 +113,7 @@
 
                                         <td id="duedt">{{i.Duedate}}</td>
                                         <td id="time">{{i.Time}}</td>
+                                        <td><a href="{% url 'taketoUD' pk=request.session.tename fk=i.quizname%}">Change Due</a></td>
 
                                        
                                         

@@ -85,7 +85,7 @@
 
     <div class="content">
     
-        <div class="row" id ="row">
+        <div class="row" id ="row" style="background: #ffffff;">
             
                         <table name ="mytab"class="table " id ="tab">
             
@@ -94,9 +94,11 @@
                                 <tr>
                                     <th scope="col">Sr. No.</th>
                                     <th scope="col">Quiz Name</th>
+                                    <th scope="col">Created By</th>
 
-                                    <th scope="col">Activedate</th>
-                                    <th scope="col">Acyivetime</th>
+                                    <th scope="col">Activation_Date</th>
+                                    <th scope="col">Activation_Time</th>
+
                                     <th scope="col">Score</th>
 
 
@@ -104,7 +106,7 @@
 
                                 </tr>
                             </thead>
-                            
+
                             <tbody>
                                 {% for i in p %}
                                 <tr>
@@ -114,12 +116,16 @@
 
 
                                     <td> 
-                                        <a id="name" href="{% url 'correctansdisp' pk=i.QuizName eml=request.session.stuemail %}">
+                                        <a id="name" href="{% url 'correctansdisp' pk=i.QuizName eml=request.session.stuemail tename=i.Teacher %}">
                                             {{i.QuizName}}</a>
                                     </td>
-
+                                    <td> 
+                                        <a id="tname">
+                                            {{i.TeacherName}}</a>
+                                    </td>
                                     <td id="duedt">{{i.Date}}</td>
                                     <td id="time">{{i.Time}}</td>
+                                    
 
 
                                     <td id="duedt">{{i.Score}}/{{i.Total_Marks}}</td>
@@ -146,9 +152,9 @@
         for( let [j,cell] of [...row.cells].entries() ) 
         {
         }
-        var actdate=document.getElementById("tab").rows[i].cells[2].innerText;
+        var actdate=document.getElementById("tab").rows[i].cells[3].innerText;
         var quizname=document.getElementById("tab").rows[i].cells[1].innerText;
-        var acttime=document.getElementById("tab").rows[i].cells[3].innerText;
+        var acttime=document.getElementById("tab").rows[i].cells[4].innerText;
 
         console.log(quizname)
         console.log(actdate)
@@ -177,14 +183,14 @@
         if(min<10){
             min = '0' +min;
         }
-        var ttime = chr +":"+min;
-        console.log(ttime);
+        var tttime = chr +":"+min;
+        console.log(tttime);
 
 
         console.log(todayDate);
         
 
-        if(todayDate<=actdate && ttime<acttime){
+        if(todayDate<=actdate && tttime<acttime){
             
             var test3=document.getElementById("tab").rows[i].cells[1].setAttribute('class','true');
            // var  displaydate=document.getElementById("tab").rows[i].cells[2].innerText

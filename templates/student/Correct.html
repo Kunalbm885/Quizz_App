@@ -19,7 +19,36 @@
     <title>QuizzUS</title>
 
 <style>
+    
+    .correctanswer{
+        border: 6px solid #8def8d;
+        padding: 8px 10px;
+        width: 100%;
+        border-radius: 5px;
+        box-shadow: 1px 3px 4px rgb(0 0 0 / 25%);
+
+    }
+    
+    .green{
+       
+        background: #8def8d;
+        padding: 8px 107px 8px 10px;
+        width: 100%;
+        border-radius: 5px;
+        box-shadow: 1px 3px 4px rgb(0 0 0 / 25%);
+
+        }
+
+    .red{
+        background: #ff969d;
+        padding: 8px 107px 8px 10px;
+        width: 100%;
+        border-radius: 5px;
+        box-shadow: 1px 3px 4px rgb(0 0 0 / 25%);
+
+    }
     .corheader strong {
+
         position: absolute;
     text-align: center;
     color: #b090ee;
@@ -32,6 +61,9 @@
 </head>
 
 <body>
+ 
+    
+
 
     <!--header area start-->
     <div class="corheader">
@@ -42,78 +74,150 @@
         {% endfor %}
         
         <img src="{% static 'images/student.png' %}" class="profile_image_10" alt="">
-        {% comment %} <h4>{{request.session.stuemail}}</h4> {% endcomment %}
         <h9>{{request.session.stuname}}</h9>
         
         <a class ="corh_link" href="{% url 'taketoSdash' pk=request.session.stuemail %}">Back</a>
-        {% comment %} <a class="l_link" href="{% url 'taketoTlogin' %}">Logout</a> {% endcomment %}
     
     </div> 
     <!--header area end-->
 
 
         <div class="Cor_container">
-            {% comment %} <h3 class="timer">timer : {{T}}</h3> {% endcomment %}
-            {% comment %} <div align="right " id="displaytimer"><b>Timer: 0 seconds</b></div> {% endcomment %}
+            
 
             
                 <form  class="form" autocomplete="off" action="" method="POST"
                     >
                     {% csrf_token %}
+
                     {% for q in check%}
+                    <div class="question">
+<br>
                     <h3 class="qts">{{ forloop.counter }}. } &nbsp {{q.Question}}</h3>
-                    <h7 class ="mks">{{q.marks}}-mark</h7>
+                    {% comment %} <h7 class ="mks">{{q.marks}}-mark</h7> {% endcomment %}
+                    <h5 style="position: absolute;
+                    width: 300px;
+                    top: 110px;
+                    left: 85%;
+                    font-weight: 900;
+                    color: #646464;
+                    font-size: 22px;
+                    text-align:center
+                }">{%if q.Selected_Ans  is None %}[0/{{q.marks}}] &nbsp(Not Attempted!){%endif%}</h5>
+
                 
 
-
                     <div class="ans_field" >
-                        <label name="op"  class="opts" value="{{q.Option1}}" >
-                           Option1 : &nbsp&nbsp{{q.Option1}}
+                       
+
+                        <img src="
+                        {% if q.Option1 == q.Selected_Ans and q.answer == q.Selected_Ans %}
+                        {% static 'images/checked.png' %} 
+                        {% elif q.Option1 == q.Selected_Ans and q.answer != q.Selected_Ans%}
+                        {% static 'images/cancel.png' %}
+                        {% endif   %}"  alt="" style="position: absolute;width: 4%;top: 17px;left: 93%;">
+
+                        <label name="op"   value="{{q.Option1}}" {% if q.Option1 == q.Selected_Ans and q.answer == q.Selected_Ans %} class="green" class="check"{% elif q.Option1 == q.Selected_Ans and q.answer != q.Selected_Ans %} class="red"  {% elif  q.Option1 == q.answer%} class=" correctanswer" {% endif %}>
+                         
+                            {% if q.Option1 == q.Selected_Ans and q.answer == q.Selected_Ans %}
+                            <span style="position: absolute;top: 18px;left: 84%;font-weight: 900;color: darkgreen;font-size: 20px;" >[{{q.marks}}/{{q.marks}}]</span>   
+                            {% elif q.Option1 == q.Selected_Ans and q.answer != q.Selected_Ans %} 
+                            <span style="position: absolute;top: 18px;left: 84%;font-weight: 900;color: #ed2626;font-size: 20px;" >[0/{{q.marks}}]</span>  
+                            {% endif %}
+                            <span style="font-weight: 600;">Opt [a] </span> : &nbsp&nbsp{{q.Option1}}
                         </label>
                     </div>
 
 
 
-                    <div class="ans_field" >  
-                        <label name="op" class="opts" value="{{q.Option2}}">
-                            Option2 : &nbsp&nbsp{{q.Option2}}
+                    <div class="ans_field" >
+                       
+
+                        <img src="
+                        {% if q.Option2 == q.Selected_Ans and q.answer == q.Selected_Ans %}
+                        {% static 'images/checked.png' %} 
+                        {% elif q.Option2 == q.Selected_Ans and q.answer != q.Selected_Ans%}
+                        {% static 'images/cancel.png' %}
+                        {% endif   %}"  alt="" style="position: absolute;width: 4%;top: 17px;left: 93%;">
+                        
+                        <label name="op"  value="{{q.Option2}}" {% if q.Option2 == q.Selected_Ans and q.answer == q.Selected_Ans %} class="green" class="check"{% elif q.Option2 == q.Selected_Ans and q.answer != q.Selected_Ans %} class="red"   {% elif  q.Option2 == q.answer%} class=" correctanswer"{% endif %} >
+
+                            {% if q.Option2 == q.Selected_Ans and q.answer == q.Selected_Ans %}
+                         <span style="position: absolute;top: 18px;left: 84%;font-weight: 900;color: darkgreen;font-size: 20px;" >[{{q.marks}}/{{q.marks}}]</span>   
+                         {% elif q.Option2 == q.Selected_Ans and q.answer != q.Selected_Ans %} 
+                         <span style="position: absolute;top: 18px;left: 84%;font-weight: 900;color: #ed2626;font-size: 20px;" >[0/{{q.marks}}]</span>  
+                         {% endif %}
+                         <span style="font-weight: 600;">Opt [b] </span> : &nbsp&nbsp{{q.Option2}}
                         </label>
                     </div>
 
 
                     <div class="ans_field" >
-                        <label  name="op" class="opts" value="{{q.Option3}}">
-                            Option3 : &nbsp&nbsp{{q.Option3}}
+                       
+                        
+
+                        <img src="
+                        {% if q.Option3 == q.Selected_Ans and q.answer == q.Selected_Ans %}
+                        {% static 'images/checked.png' %} 
+                        {% elif q.Option3 == q.Selected_Ans and q.answer != q.Selected_Ans%}
+                        {% static 'images/cancel.png' %}
+                        {% endif   %}"  alt="" style="position: absolute;width: 4%;top: 17px;left: 93%;">
+
+
+                        <label  name="op"  value="{{q.Option3}}" {% if q.Option3 == q.Selected_Ans and q.answer == q.Selected_Ans %} class="green" {% elif q.Option3 == q.Selected_Ans and q.answer != q.Selected_Ans %} class="red" {% elif  q.Option3 == q.answer%} class=" correctanswer"{% endif %}>
+
+                            {% if q.Option3 == q.Selected_Ans and q.answer == q.Selected_Ans %}
+                            <span style="position: absolute;top: 18px;left: 84%;font-weight: 900;color: darkgreen;font-size: 20px;" >[{{q.marks}}/{{q.marks}}]</span>   
+                            {% elif q.Option3 == q.Selected_Ans and q.answer != q.Selected_Ans %} 
+                            <span style="position: absolute;top: 18px;left: 84%;font-weight: 900;color: #ed2626;font-size: 20px;" >[0/{{q.marks}}]</span>  
+                            {% endif %}
+
+                            <span style="font-weight: 600;">Opt [c] </span> : &nbsp&nbsp{{q.Option3}}
                         </label>
                     </div>
 
 
                     <div class="ans_field" >
-                        <label name="op" class="opts" value="{{q.Option4}}">
-                            Option4 : &nbsp&nbsp{{q.Option4}}
+
+                     
+
+                        <img src="
+                        {% if q.Option4 == q.Selected_Ans and q.answer == q.Selected_Ans %}
+                        {% static 'images/checked.png' %} 
+                        {% elif q.Option4 == q.Selected_Ans and q.answer != q.Selected_Ans%}
+                        {% static 'images/cancel.png' %}
+                        {% endif   %}"  alt="" style="position: absolute;width: 4%;top: 17px;left: 93%;">
+
+                        <label name="op"  value="{{q.Option4}}"  {% if q.Option4 == q.Selected_Ans and q.answer == q.Selected_Ans %} class="green"  id="xyz"
+                         {% elif q.Option4 == q.Selected_Ans and q.answer != q.Selected_Ans %} class="red"   {% elif  q.Option4 == q.answer%} class=" correctanswer"{% endif %}>
+
+                         {% if q.Option4 == q.Selected_Ans and q.answer == q.Selected_Ans %}
+                         <span style="position: absolute;top: 18px;left: 84%;font-weight: 900;color: darkgreen;font-size: 20px;" >[{{q.marks}}/{{q.marks}}]</span>   
+                         {% elif q.Option4 == q.Selected_Ans and q.answer != q.Selected_Ans %} 
+                         <span style="position: absolute;top: 18px;left: 84%;font-weight: 900;color: #ed2626;font-size: 20px;" >[0/{{q.marks}}]</span>  
+                         {% endif %}
+                        
+                            <span style="font-weight: 600;">Opt [d] </span>: &nbsp&nbsp{{q.Option4}}
+                            
                         </label>
                     </div>
                         
                     
 
-                        <div class="ans_field">
-                        <label class="sel" name="op1" value="{{q.Selected_Ans}}">
-                           Selected_Answer :&nbsp{{q.Selected_Ans}}
-                        </label>
-                        </div>
+                       
 
 
 
-                    <div class="ans_field">
+                    {% comment %} <div class="ans_field">
                         <label name="op2" class="cor">
                             Correct_Answer :&nbsp {{q.answer}}
                         </label>
-                    </div>
+                    </div> {% endcomment %}
 
                         <br>
-                        <br>
-                        <hr>
-        
+                        <hr style="margin-top: 1rem;margin-bottom: 1rem;border: 0;border-top: 6px solid rgba(0,0,0,.1);position: relative;right: 10%;width: 121%;">
+                </div>
+
                     
 
                     {% endfor %}

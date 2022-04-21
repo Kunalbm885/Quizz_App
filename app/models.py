@@ -57,6 +57,8 @@ class Question(models.Model):
 class QuizReport(models.Model):#konse teacher ka quiz diya voh daalde
     Student = models.CharField(max_length=100)
     Teacher=models.CharField(default=1,max_length=100)
+    TeacherName=models.CharField(default=1,max_length=100)
+
     Date=models.CharField(default=1,max_length=100)
     Time=models.CharField(default=1,max_length=100)
 
@@ -77,6 +79,7 @@ class QuizReport(models.Model):#konse teacher ka quiz diya voh daalde
 class Answer_Bank(models.Model):#konse teacher ka quiz diya voh daalde
     Student = models.CharField(max_length=100)
     Teacher=models.CharField(default=1,max_length=100)
+
     Quiz_Name = models.CharField(max_length=300)
     Question = models.CharField(default=1, max_length=300)
     Option1 = models.CharField(default=10, max_length=100)

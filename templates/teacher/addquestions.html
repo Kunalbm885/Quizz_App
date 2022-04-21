@@ -125,6 +125,7 @@
         </li>
     </div>
 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
     <script>
@@ -168,7 +169,15 @@
                 &&   !document.getElementById('one4').checked) 
                 {
                     oEvent.preventDefault(); 
-                    alert('Please select the Radio button with Correct option !!');
+                    
+                        swal({
+                            title: "Correct Answer Missing !",
+                            text: "Please Choose the Radio Button of Correct Option!  ",
+                            icon: "info",
+                        
+                          });   
+                
+
                 }
             } )
         } );

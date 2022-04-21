@@ -14,7 +14,7 @@ urlpatterns = [
     # path("selectcourse",views.SelectCourse,name="selectcourse"),
     path("taketogivexam <str:pk> <str:eml> <str:time> <str:name>",views.givexam,name="taketogivexam"),
     path("taketoreportpage <str:eml>",views.ToResultpage,name="taketoreportpage"),
-    path("correctansdisp <str:pk> <str:eml>",views.ToAnsPage,name="correctansdisp"),
+    path("correctansdisp <str:pk> <str:eml> <str:tename>",views.ToAnsPage,name="correctansdisp"),
     path("selectcourse <str:pk>",views.SelectCourse,name="selectcourse"),
     path("selectteacher",views.SelectT,name="selectT"),
 
@@ -34,6 +34,8 @@ urlpatterns = [
     path("emailsend",views.EmailSending,name="emailsend"),
     path("taketoquiz <str:pk>",views.quiz,name="taketoquiz"),
     path("taketoattempted <str:pk>",views.attempted,name="taketoattempted"),
+    path("taktoUpdateDue <str:pk> <str:fk>",views.TakeToUD,name="taketoUD"),
+    path("UpdateDetails <str:pk> <str:fk>",views.UpdateQuizDetails,name="updatedetails"),
 
 
 

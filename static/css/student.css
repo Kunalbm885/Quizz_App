@@ -117,9 +117,9 @@ h4 {
 }
 .content {
   position: absolute;
-  top: 170px;
-  left: 35%;
-  width: 63%;
+  top: 188px;
+  left: 33%;
+  width: 64%;
 }
 
 .header {
@@ -218,7 +218,7 @@ color: white;
   position: absolute;
   left: 100px;
   top: 20px;
-  font-size: 27px;
+  font-size: 36px;
   font-weight: 500;
 
  
@@ -286,28 +286,32 @@ color: white;
   width: 800px;
   padding: 10px;
   word-break: break-word;
-  font-size: 21px;
+  font-size: 25px;
   font-weight: 550;
   color: #530371;
+  position: relative;
+    right: 41px;
 }
 
 .mks {
   position: relative;
-  left: 88%;
+  left: 85%;
   /* bottom: 72%; */
   top: -36px;
+  color: #530371;
+
 }
 .ans_field {
   width: 690px;
   position: relative;
-  left: 4%;
+  left: 0%;
   padding: 10px;
   word-break: break-word;
 
 }
 .ans_field hr {
   width: 950px;
-  right: 6%;
+  right: 15%;
   position: relative;
   
 }
@@ -393,9 +397,13 @@ color: white;
 } 
 
 .cor{
-  background-color: rgb(141, 239, 141);
+  background-color: rgb(227 206 255);
   padding: 8px 15px;
   border-radius: 5px;
+  width: 100%;
+  font-weight: bolder;
+  box-shadow: 1px 3px 4px rgb(0 0 0 / 25%);
+
 }
 
 .sel{
