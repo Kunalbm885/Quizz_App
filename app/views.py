@@ -488,23 +488,4 @@ def UpdateQuizDetails(request,pk):
 
     update.save()
 
-<<<<<<< HEAD
-    return render(request,"teacher/attempted.html" ,{'s':stud ,'c':c ,'pk':pk})
-
-def TakeToUD(request,pk,fk):
-    u = QuizInfo.objects.get(teacherassigname=pk,quizname=fk)
-    return render(request,"teacher/updatedue.html",{'teaname':pk,'uquizname':fk,'u':u})
-
-def UpdateQuizDetails(request,pk,fk):
-    p = pk
-    update = QuizInfo.objects.get(teacherassigname=pk,quizname=fk)
-    update.noofquest = request.POST['no']
-    update.totaltime = request.POST['tottime']
-    update.Duedate = request.POST['date']
-    update.Time = request.POST['time']
-
-    update.save()
-
-=======
->>>>>>> e49db1a96a23fb1884c1512f9e1e48de9f69bd2e
     return redirect('taketoquiz',pk=p)

@@ -36,13 +36,9 @@ urlpatterns = [
 
     path("taketoattempted <str:pk>",views.attempted,name="taketoattempted"),
     path("taktoUpdateDue <str:pk> <str:fk>",views.TakeToUD,name="taketoUD"),
-<<<<<<< HEAD
-    path("UpdateDetails <str:pk> <str:fk>",views.UpdateQuizDetails,name="updatedetails"),
-=======
     path("UpdateDetails <str:pk> ",views.UpdateQuizDetails,name="updatedetails"),
 
 
 
 
->>>>>>> e49db1a96a23fb1884c1512f9e1e48de9f69bd2e
 ]
