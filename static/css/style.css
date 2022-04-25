@@ -437,8 +437,9 @@ transition: 0.4s;
     background-size: cover;
     position: absolute;
     bottom: 550px;
-    width: 100%;
-    top: 55px;
+    width: 90%;
+    top: -35px;
+    left:30px;
 }
 
 
@@ -497,8 +498,8 @@ box-shadow: 0px 9px 7px rgb(0 0 0 / 60%);
     background-size: cover;
     position: absolute;
     bottom: 550px;
-    width: 100%;
-    top: 55px;
+    width: 90%;
+    top: 1px;
     /* box-shadow: rgb(0 0 0 / 41%) 1px 6px 15px 5px; */
 
 }
@@ -908,4 +909,37 @@ border-radius: 30px;
     text-decoration: none;
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
 

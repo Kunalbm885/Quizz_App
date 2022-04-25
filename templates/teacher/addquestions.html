@@ -126,6 +126,7 @@
         </li>
     </div>
 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
     <script>
@@ -159,6 +160,7 @@
                 $dst.val($src.val());
             });
         });
+<<<<<<< HEAD
 
 
         jQuery(function ($) {
@@ -169,6 +171,27 @@
                     && !document.getElementById('one4').checked) {
                     oEvent.preventDefault();
                     alert('Please select the Radio button with Correct option !!');
+=======
+        
+
+        jQuery( function( $ ) { 
+            $('form').on( 'submit', function( oEvent ) { 
+                if (   !document.getElementById('one1').checked   
+                &&   !document.getElementById('one2').checked 
+                &&   !document.getElementById('one3').checked
+                &&   !document.getElementById('one4').checked) 
+                {
+                    oEvent.preventDefault(); 
+                    
+                        swal({
+                            title: "Correct Answer Missing !",
+                            text: "Please Choose the Radio Button of Correct Option!  ",
+                            icon: "info",
+                        
+                          });   
+                
+
+>>>>>>> e49db1a96a23fb1884c1512f9e1e48de9f69bd2e
                 }
             })
         });

@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora&family=Poppins:wght@100;200;300;400;600;700&display=swap"
     rel="stylesheet">
 
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
@@ -94,7 +95,7 @@
 
     <div class="content">
     
-            <div class="row" id ="row">
+            <div class="row" id ="row" style="background: #ffffff;">
                 
                             <table name ="mytab"class="table " id ="tab">
                 
@@ -122,13 +123,28 @@
                                         <th scope="row">{{ forloop.counter }}</th>
 
                                         <td>
-                                            <a   id="name" href="{% url 'taketogivexam' pk=i.quizname eml=request.session.stuemail time=i.totaltime name=teachername %}" {% for q in s %} {% if q.isattempted == True and q.qname == i.quizname and q.sname == request.session.stuname%} class="disabled1"   {% endif %} {% endfor %}>
+                                            
 
+                                           
+
+
+                                            <a   id="name" href="{% url 'taketogivexam' pk=i.quizname eml=request.session.stuemail time=i.totaltime name=teachername %}" {% for q in s %} {% if q.isattempted == True and q.qname == i.quizname and q.sname == request.session.stuname %} class="disabled1"  {% endif %} {% endfor %} >
+                                                {% for q in s %}
+
+                                                <img src="
+                                                {% if q.isattempted == True and q.qname == i.quizname and q.sname == request.session.stuname %}
+                                                {% static 'images/check.png' %} 
+                                                {% endif   %} 
+                                                "  alt="" style="position: absolute; width: 2%;left: 10%;" >
+                                                {% endfor %}
+                                                
                                                 {{i.quizname}}
 
 
-                                            </a></td>
-
+                                               
+                                            </a></td> 
+                                          
+    
 
                                         <td id="duedt">{{i.Duedate}}</td>
                                         <td id="time">{{i.Time}}</td>
@@ -197,6 +213,7 @@
             
             var test3=document.getElementById("tab").rows[i].cells[1].setAttribute('class','true');
 
+
             console.log(test3)
            window.onload = function(){
             var anchors = document.querySelectorAll("[class=true]");
@@ -222,7 +239,7 @@
             console.log(`date ended`)    
 
         }
-
+       
 
         console.log(`.........`)
         console.log(`.........`)

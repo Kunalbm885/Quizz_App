@@ -78,7 +78,7 @@
         </form>
 
         <div class="img">
-            <img src="{% static 'images/reg t.png' %}" alt="">
+            <img src="{% static 'images/signup.png' %}" alt="">
         </div>
 
     </div>
@@ -87,10 +87,25 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
     
-        {% if msg %}
+        {% if msg2 %}
 
-        swal('{{msg}}');
+        swal({
+            title: "Oops !",
+            text: '{{msg2}}',
+            icon: "error",
+        
+          });     
+       
+        {% endif %}
 
+        {% if msg1 %}
+
+        swal({
+            title: "Done !",
+            text: '{{msg1}}',
+            icon: "success",
+        
+          });     
        
         {% endif %}
 

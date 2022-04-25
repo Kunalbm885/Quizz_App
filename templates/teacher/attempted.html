@@ -20,6 +20,12 @@
     <title>QuizzUS</title>
 
 <style>
+   
+   
+   
+    
+
+    {% comment %} table td:empty::before{content: "--"; color:red;} {% endcomment %}
         a.disabled1 {
              pointer-events: none;
             cursor: pointer;
@@ -65,43 +71,19 @@
 
             
           </div>    </div>
+          <label style="position: absolute;top: 12%;left: 11%;font-size: 36px;font-weight: 600;color: purple;"> Students Report</label>
 
-
+<hr>
           <label style="position: absolute;top: 20%;left: 11%;font-size: 30px;font-weight: 600;color: purple;"> {{pk}}  Quiz</label>
    
 
-    {% comment %} <div class="sidebar">
-        <div class ="panel">
-
-        <center>
-
-            <img src="{% static 'images/student.png' %}" class="profile_image" alt="">
-            
-            <h6>{{request.session.tename}}</h6>
-            <h4>(Teacher)</h4>
-
-        </center>
-
-        <ul class="sideitems">
-            <li>
-                <a   href="{% url 'taketoTdash' %}">Home</a>
-            </li>
-
-           
-
-            <li>
-                <a  href="/" style="margin-top: 100px;">Logout</a>
-            </li>
-
-    </div>
-</div> {% endcomment %}
-    <!--sidebar end-->
+    
 
    
 
     <div class="content">
     
-            <div class="row" id ="row">
+            <div class="row" id ="row" style="background:white">
                 
                             <table name ="mytab"class="table " id ="tab">
                 
@@ -118,7 +100,6 @@
 
 
 
-                                        {% comment %} <th scope="col">End_Time</th> {% endcomment %}
 
                                         
 
@@ -134,16 +115,25 @@
                                       
                                         <td><a   id="name" >{{i.studentname}}</a></td>
 
-                                        
-                                        <td 
-                                        id="time"  {% for y in c%}{% if i.studentemail == y.Student and y.QuizName == pk %} class ="att" {% endif %}{%endfor%}> 
-                                            
-                                            {% for y in c%}{% if i.studentemail == y.Student and y.QuizName == pk  %}Attemped{%endif%}{%endfor%} 
-                                        
-                                        </td>
 
-                                        <td id="time" {% for y in c%}{% if i.studentemail == y.Student and y.QuizName == pk %} class ="att" {% endif %}{%endfor%}>
-                                            
+                                        
+
+                                        <td 
+                                        id="time" {% for y in c%} {% if i.studentemail == y.Student and y.QuizName == pk %} class ="att" id="abc" {% endif %} {%endfor%}>               
+                                         
+                                        <img src = "{% static 'images/cancel.png' %}" style="position: absolute; width: 2%;left: 44.5%;">
+                                         {% for y in c%}
+                                        <img src="
+                                                {% if y.Student == i.studentemail and y.QuizName == pk %}
+                                                {% static 'images/checked.png' %} 
+                                                {% endif   %} 
+                                                "  alt="" style="position: absolute; width: 2.2%;left: 44.5%;" >
+                                                {% endfor %}
+                                        </td>
+                                        
+
+
+                                        <td id="time" {% for y in c%}{% if i.studentemail == y.Student and y.QuizName == pk %} class ="att" {% endif %}{%endfor%}>                                            
                                             {% for y in c%}{% if i.studentemail == y.Student and y.QuizName == pk %}{{y.Score}}/{{y.Total_Marks}}{% endif %}{%endfor%}
                                         
                                         </td>
@@ -161,14 +151,10 @@
                                         </td>
 
 
-
-                                        {% comment %} <td id="duedt">{{i.Duedate}}</td>
-                                        <td id="time">{{i.Time}}</td> {% endcomment %}
-
+                                        
                                        
                                         
                                     </tr>
-                                    
                                     {% endfor %}
                                 </tbody>
                             </table>
@@ -179,6 +165,7 @@
 
 
     <script>
+        
         function abc( ) {
             window.onload = function () {
                 x= document.getElementByClassName("att");
@@ -196,95 +183,7 @@
     </script>
 
 
-{% comment %} <script> 
-    
 
-   
-
-
-    for ( let [i,row] of [...tab.rows].entries() ) 
-    {
-        for( let [j,cell] of [...row.cells].entries() ) 
-        {
-        }
-        var test=document.getElementById("tab").rows[i].cells[2].innerText;
-        console.log(test)
-        var test2=document.getElementById("tab").rows[i].cells[1].innerText;
-        console.log(test2)
-        var test9=document.getElementById("tab").rows[i].cells[3].innerText;
-        console.log(test9)
-
-       
-        var date = new Date();
-        var cdate = date.getDate();
-        if(cdate <10){
-            cdate = '0' +cdate;
-        }
-        var month = date.getMonth() + 1;
-        if(month <10){
-            month = '0' +month;
-        }
-        var year = date.getUTCFullYear();
-        var todayDate = year +"-"+month +"-"+ cdate;
-
-
-        var chr = date.getHours();
-        if(chr<10){
-            chr = '0' +chr;
-        }
-        var min = date.getMinutes();
-        if(min<10){
-            min = '0' +min;
-        }
-        var ttime = chr +":"+min;
-        console.log(ttime);
-
-
-        console.log(todayDate);
-        
-
-        if(todayDate>=test && ttime>test9){
-            
-            var test3=document.getElementById("tab").rows[i].cells[1].setAttribute('class','true');
-
-            console.log(test3)
-           window.onload = function(){
-            var anchors = document.querySelectorAll("[class=true]");
-            
-            for(var i = 0; i<anchors.length ; i++){
-            anchors[i].onclick = function()
-
-            {
-
-                swal("Oops!! You Missed this Quiz\n\n DUE DATE PASSED ....")
-                return false};
-
-                
-            
-            }
-            };
-
-            console.log(`date ended`)    
-
-        }
-
-
-        console.log(`.........`)
-        console.log(`.........`)
-
-    }
-
-
-
-
-    $(".disabled1").on('click',function(event){
-        swal("Oops!! You Missed this Quiz\n\n DUE DATE PASSED ....")
-
-
-    })
-
-</script>
-     {% endcomment %}
 
 </body>
 
