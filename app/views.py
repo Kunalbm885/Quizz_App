@@ -464,5 +464,4 @@ def UpdateQuizDetails(request,pk,fk):
 
     update.save()
 
-    # return render(request,"teacher/quiz.html")
     return redirect('taketoquiz',pk=p)
