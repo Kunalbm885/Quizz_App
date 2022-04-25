@@ -35,10 +35,10 @@
 
 <body>
     <div id="time2" value="{{timer}}">{{timer}}</div>
-
-
+    
     <!--header area start-->
     <div class="header">
+       
 
         <h1 style="left: 10%;">QuizzUS</h1>
         <img src="{% static 'images/logo.png' %}"  alt="" style="position: relative;width: 101px;left: 3%;top: 7%;">
@@ -59,7 +59,7 @@
 
     </label>00:00</label>
     </div>
-       
+    
 
         <img src="{% static 'images/student.png' %}" class="profile_image_1" alt="">
         <h4>{{request.session.stuemail}}</h4>
@@ -83,8 +83,8 @@
                     {% for q in questions%}
 
 
-
-                    <h3 class="qts">{{ forloop.counter }}. } &nbsp {{q.question}}</h3>
+                    <h3 style="position: relative;right: 106%;top: 12%;/* font-size: larger; */font-weight: 600;color: purple;">[{{ forloop.counter }}]</h3>
+                    <h3 class="qts"> {{q.question}}</h3>
                     <h7 class ="mks">{{q.marks}}-mark</h7>
 
 
@@ -179,6 +179,8 @@
         </script>
 
     <script>
+       
+
         function startTimer(duration, display) {
             var timer = duration, minutes, seconds;
             var interVal=  setInterval(function () {

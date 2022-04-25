@@ -57,6 +57,16 @@
     font-size: 36px;
     /* font-weight: 100;
     }
+    h5{
+        "position: absolute;
+                    width: 300px;
+                    top: 110px;
+                    left: 85%;
+                    font-weight: 900;
+                    color: #646464;
+                    font-size: 22px;
+                    text-align:center
+    }
 </style>
 </head>
 
@@ -95,15 +105,12 @@
 <br>
                     <h3 class="qts">{{ forloop.counter }}. } &nbsp {{q.Question}}</h3>
                     {% comment %} <h7 class ="mks">{{q.marks}}-mark</h7> {% endcomment %}
-                    <h5 style="position: absolute;
+                    <h5 style = "position: absolute;
                     width: 300px;
-                    top: 110px;
                     left: 85%;
                     font-weight: 900;
                     color: #646464;
-                    font-size: 22px;
-                    text-align:center
-                }">{%if q.Selected_Ans  is None %}[0/{{q.marks}}] &nbsp(Not Attempted!){%endif%}</h5>
+                    font-size: 22px;">{%if q.Selected_Ans  is None %}[0/{{q.marks}}] &nbsp(Not Attempted!){%endif%}</h5>
 
                 
 
@@ -120,9 +127,9 @@
                         <label name="op"   value="{{q.Option1}}" {% if q.Option1 == q.Selected_Ans and q.answer == q.Selected_Ans %} class="green" class="check"{% elif q.Option1 == q.Selected_Ans and q.answer != q.Selected_Ans %} class="red"  {% elif  q.Option1 == q.answer%} class=" correctanswer" {% endif %}>
                          
                             {% if q.Option1 == q.Selected_Ans and q.answer == q.Selected_Ans %}
-                            <span style="position: absolute;top: 18px;left: 84%;font-weight: 900;color: darkgreen;font-size: 20px;" >[{{q.marks}}/{{q.marks}}]</span>   
+                            <span style="position: absolute;top: 18px;left: 84%;font-weight: 900;color: darkgreen;font-size: 20px;" >{{q.marks}}/{{q.marks}}</span>   
                             {% elif q.Option1 == q.Selected_Ans and q.answer != q.Selected_Ans %} 
-                            <span style="position: absolute;top: 18px;left: 84%;font-weight: 900;color: #ed2626;font-size: 20px;" >[0/{{q.marks}}]</span>  
+                            <span style="position: absolute;top: 18px;left: 84%;font-weight: 900;color: #ed2626;font-size: 20px;" >0/{{q.marks}}</span>  
                             {% endif %}
                             <span style="font-weight: 600;">Opt [a] </span> : &nbsp&nbsp{{q.Option1}}
                         </label>
@@ -143,9 +150,9 @@
                         <label name="op"  value="{{q.Option2}}" {% if q.Option2 == q.Selected_Ans and q.answer == q.Selected_Ans %} class="green" class="check"{% elif q.Option2 == q.Selected_Ans and q.answer != q.Selected_Ans %} class="red"   {% elif  q.Option2 == q.answer%} class=" correctanswer"{% endif %} >
 
                             {% if q.Option2 == q.Selected_Ans and q.answer == q.Selected_Ans %}
-                         <span style="position: absolute;top: 18px;left: 84%;font-weight: 900;color: darkgreen;font-size: 20px;" >[{{q.marks}}/{{q.marks}}]</span>   
+                         <span style="position: absolute;top: 18px;left: 84%;font-weight: 900;color: darkgreen;font-size: 20px;" >{{q.marks}}/{{q.marks}}</span>   
                          {% elif q.Option2 == q.Selected_Ans and q.answer != q.Selected_Ans %} 
-                         <span style="position: absolute;top: 18px;left: 84%;font-weight: 900;color: #ed2626;font-size: 20px;" >[0/{{q.marks}}]</span>  
+                         <span style="position: absolute;top: 18px;left: 84%;font-weight: 900;color: #ed2626;font-size: 20px;" >0/{{q.marks}}</span>  
                          {% endif %}
                          <span style="font-weight: 600;">Opt [b] </span> : &nbsp&nbsp{{q.Option2}}
                         </label>
@@ -167,9 +174,9 @@
                         <label  name="op"  value="{{q.Option3}}" {% if q.Option3 == q.Selected_Ans and q.answer == q.Selected_Ans %} class="green" {% elif q.Option3 == q.Selected_Ans and q.answer != q.Selected_Ans %} class="red" {% elif  q.Option3 == q.answer%} class=" correctanswer"{% endif %}>
 
                             {% if q.Option3 == q.Selected_Ans and q.answer == q.Selected_Ans %}
-                            <span style="position: absolute;top: 18px;left: 84%;font-weight: 900;color: darkgreen;font-size: 20px;" >[{{q.marks}}/{{q.marks}}]</span>   
+                            <span style="position: absolute;top: 18px;left: 84%;font-weight: 900;color: darkgreen;font-size: 20px;" >{{q.marks}}/{{q.marks}}</span>   
                             {% elif q.Option3 == q.Selected_Ans and q.answer != q.Selected_Ans %} 
-                            <span style="position: absolute;top: 18px;left: 84%;font-weight: 900;color: #ed2626;font-size: 20px;" >[0/{{q.marks}}]</span>  
+                            <span style="position: absolute;top: 18px;left: 84%;font-weight: 900;color: #ed2626;font-size: 20px;" >0/{{q.marks}}</span>  
                             {% endif %}
 
                             <span style="font-weight: 600;">Opt [c] </span> : &nbsp&nbsp{{q.Option3}}
@@ -192,9 +199,9 @@
                          {% elif q.Option4 == q.Selected_Ans and q.answer != q.Selected_Ans %} class="red"   {% elif  q.Option4 == q.answer%} class=" correctanswer"{% endif %}>
 
                          {% if q.Option4 == q.Selected_Ans and q.answer == q.Selected_Ans %}
-                         <span style="position: absolute;top: 18px;left: 84%;font-weight: 900;color: darkgreen;font-size: 20px;" >[{{q.marks}}/{{q.marks}}]</span>   
+                         <span style="position: absolute;top: 18px;left: 84%;font-weight: 900;color: darkgreen;font-size: 20px;" >{{q.marks}}/{{q.marks}}</span>   
                          {% elif q.Option4 == q.Selected_Ans and q.answer != q.Selected_Ans %} 
-                         <span style="position: absolute;top: 18px;left: 84%;font-weight: 900;color: #ed2626;font-size: 20px;" >[0/{{q.marks}}]</span>  
+                         <span style="position: absolute;top: 18px;left: 84%;font-weight: 900;color: #ed2626;font-size: 20px;" >0/{{q.marks}}</span>  
                          {% endif %}
                         
                             <span style="font-weight: 600;">Opt [d] </span>: &nbsp&nbsp{{q.Option4}}

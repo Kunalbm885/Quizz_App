@@ -8,6 +8,12 @@
 body {
   font-family: "Roboto", sans-serif;
   background: rgb(240, 229, 241);
+  /* background: linear-gradient(
+    189.35deg,
+    #34005c -18.68%,
+    #8e30b1 46.97%,
+    #530371 86.5% 
+  );*/
 }
 
 .nav-container {
@@ -418,6 +424,11 @@ color: white;
   cursor: default;
   color: red;
 } */
+
+
+
+
+
 
 
 

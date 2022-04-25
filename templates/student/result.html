@@ -128,7 +128,7 @@
                                     
 
 
-                                    <td id="duedt">{{i.Score}}/{{i.Total_Marks}}</td>
+                                    <td id="score">{{i.Score}}/{{i.Total_Marks}}</td>
                                     {% comment %} <td id="time">{{i.Time}}</td> {% endcomment %}
 
                                    
@@ -142,10 +142,24 @@
         </div>
 </div>
 
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    {% comment %} <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+     {% endcomment %}
+
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 <script> 
+
+   
+
+
+
+
+
+
+
+
        
     for ( let [i,row] of [...tab.rows].entries() ) 
     {
@@ -208,12 +222,33 @@
             anchors[i].onclick = function()
 
             {
+                var $row = $(this).closest("tr");    // Find the row
+                var $date = $row.find("#duedt").text();
+                var $name = $row.find("#time").text();
+                var $new = $date.split("-").reverse().join("-");
 
-                swal({
-                    title: "Oops !",
-                    text: "Oo Stree Kal Aana",
-                    icon: "info",
-                  });                
+        
+               
+                console.log($name);
+                console.log($new);
+
+        
+               /*swal({
+                    title: "",
+                    text: "Link will activate after ...\n"+"  DATE = " + $new  +"\n  TIME = " + $name ,
+
+                    icon: "warning",
+                  });  */  
+                  
+                  
+
+                  Swal.fire({
+                    title: 'Link Not Active !',
+                    text: 'Link will activate after -> ' + $new +'  &  ' + $name ,
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#800080',
+                  }) 
                   return false};
             }
             };
