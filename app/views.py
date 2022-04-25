@@ -81,13 +81,9 @@ def StudentDash(request):
 
 
                 c=QuizReport.objects.all().filter(Student=studentemail)
-<<<<<<< HEAD
-               
-=======
                 print(c)
                
 
->>>>>>> e49db1a96a23fb1884c1512f9e1e48de9f69bd2e
                 return render(request, "student/studentdash.html",{'c':c})
             else:
                 message = "Password is Incorrect"
