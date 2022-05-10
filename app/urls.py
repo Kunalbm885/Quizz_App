@@ -31,6 +31,8 @@ urlpatterns = [
     path("getquizinfo <str:pk>",views.GetQuizInfo,name="getquizinfo"),
     path("getquestion <str:pk> <str:fk>",views.GetQuestions,name="getquestions"),
     path("taketoPreview <str:pk> <str:fk>",views.GetPreview,name="taketoPreview"),
+    path("taketoshow <str:pk> <str:fk>",views.GetShow,name="taketoshow"),
+
     path("emailsend",views.EmailSending,name="emailsend"),
     path("taketoquiz <str:pk>  ",views.quiz,name="taketoquiz"),
 

@@ -445,10 +445,36 @@ color: white;
 
 
 
+progress {
+  border: purple;
+  width: 270px;
+  height: 20px;
+  background: #4caf50;
+  border-radius: 5px;
+}
 
+progress {
+  color: lightblue;
+}
 
+progress::-moz-progress-bar {
+  background: lightcolor;
+}
 
+progress::-webkit-progress-value {
+  background :#32ba7c;
 
+  border-radius: 5px 5px 5px 5px;
+}
+
+progress::-webkit-progress-bar {
+  background: #ffffff;
+  
+  border: 1px solid black;
+  border-radius: 5px 5px 5px 5px;
+  /* box-shadow: 0 2px 5px rgba(223, 223, 223, 0.25) inset; */
+
+}
 
 
 

@@ -155,7 +155,7 @@ def givexam(request, pk,eml ,time , name):
                   Student=eml,Question=q.question,Selected_Ans=ans,Quiz_Name=pk,Option1=q.option1,Option2=q.option2,Option3=q.option3,Option4=q.option4,answer=q.answer,marks=q.marks,Teacher=name)
 
         percent = score/(total*q.marks) *100
-        percent = '{:.2f}'.format(percent)
+        percent = '{:.1f}'.format(percent)
 
 
        
@@ -340,7 +340,10 @@ def GetQuizInfo(request, pk):
     q = QuizInfo.objects.get(quizname=quiznamee, teacherassigname=taname)
     request.session['quizn'] = q.quizname
     quizn=q.quizname
-    return render(request, "teacher/addquestions.html")
+    c=1
+    print(c)
+   
+    return render(request, "teacher/addquestions.html" , {'count':c , 'q':number} )
 
 
 
@@ -349,6 +352,8 @@ def GetQuestions(request, pk, fk):
     
 
     q = QuizInfo.objects.get(teacherassigname=pk, quizname=fk)
+    quest1 = q.noofquest
+
     qname = q.quizname
     que = request.POST['question']
     opA =request.POST['optionA']
@@ -366,7 +371,13 @@ def GetQuestions(request, pk, fk):
     newquestion = Question.objects.create(
        Teacher=pk, quiznameques=qname, question=que, option1=opA, option2=opB, option3=opC, option4=opD, answer=ans, marks=mks)
 
-    return render(request, "teacher/addquestions.html")
+
+    quest = Question.objects.all().filter(Teacher=pk, quiznameques=fk).count()
+    c = quest+1
+    print(c)
+
+
+    return render(request, "teacher/addquestions.html" , {'count':c ,'q':quest1} )
 
 
 
@@ -387,12 +398,32 @@ def GetPreview(request ,pk, fk):
     return render (request,"teacher/preview.html",{'show':show ,'total':total ,'name':quiz})
 
 
+def GetShow(request ,pk, fk):
+    quiz=fk
+    
+    te=pk
+    print(quiz)
+    # print(te)
+    total = 0
+    show = Question.objects.all().filter(Teacher=pk,quiznameques=fk)
+    # print(show)
+
+    for s in show :
+        mks = s.marks
+        total += mks
+    return render (request,"teacher/show.html",{'show':show ,'total':total ,'name':quiz})
+
+
+
 
     
 
 def EmailSending(request):
     global teachern,quizn
-    template = render_to_string('teacher/demo1.html',{'quizname':quizn,'teachername':teachern})
+
+    x=QuizInfo.objects.get(teacherassigname=teachern , quizname=quizn)
+    abc=x.Duedate
+    template = render_to_string('teacher/demo1.html',{'quizname':quizn,'teachername':teachern, 'date':abc})
     studente = Student.objects.values_list('studentemail',flat=True)
     for i in studente:
         email = EmailMessage(
@@ -418,6 +449,7 @@ def quiz(request,pk):
     c = QuizInfo.objects.all().filter(teacherassigname = pk)
     # s = AttemptedQuiz.objects.all().filter(sname = studentname)
 
+   
    
     return render(request,"teacher/quiz.html",{'c':c})
 
@@ -466,7 +498,12 @@ def attempted(request,pk):
 
 def TakeToUD(request,pk,fk):
     u = QuizInfo.objects.get(teacherassigname=pk,quizname=fk)
+  
+    number=Question.objects.all().filter(Teacher=pk,quiznameques=fk).count
+    print(number)
     return render(request,"teacher/quiz.html",{'teaname':pk,'uquizname':fk,'u':u})
+
+
 
 def UpdateQuizDetails(request,pk):
     p = pk
@@ -474,6 +511,7 @@ def UpdateQuizDetails(request,pk):
 
     name = request.POST.get('quiz10','')
     print (name)
+    
     update = QuizInfo.objects.get(teacherassigname=pk,quizname=name)
     
     update.noofquest = request.POST['no']

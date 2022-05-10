@@ -23,11 +23,15 @@
 </head>
 
 <body>
+    
 
     <!--header area start-->
     <div class="nav-container">
-
-        <h2>Quizz App Name</h2>
+        <label name="ran" id = "num" style="opacity:0">{{q}}</label>
+        <div class="logo">
+            <h1 style="position: absolute;left: 13%;top: 20%;color:#6e2e9d;font-size: 38px;font-weight: 600;left: 50%;">QuizzUS</h1>
+            <img src="{% static 'images/logo.png' %}"  alt="" style="position: relative;width: 101px;left: 38%;bottom: 40px;">
+        </div>
     </div>
     <!--header area end-->
 
@@ -63,6 +67,7 @@
     <!--sidebar end-->
 
     <div class="form-area-aq">
+       
         <form action="{% url 'getquestions' pk=request.session.tename fk=request.session.quizn %}" method="post">
             {% csrf_token %}
             
@@ -71,8 +76,15 @@
             
 
             <h3>Add Questions</h3>
+
             {% comment %} <h3></h3> {% endcomment %}
             <h3 style="position: absolute;left: 6px;top: 0px; width: 496px;">Quiz Name :&nbsp{{request.session.quizn}}</h3>
+            <h3 name ="qt" id = "123" style="position: absolute;left: 0%;top: 18%;width: auto;" >{{count}}</h3>
+            <label  id = "sub" style="position: absolute;left: 0%;top: 7%;width: auto;color: purple;" ></label>
+
+            {% comment %} <h3  style="position: absolute;left: 0%;top: 18%;width: auto;" > Number of questions created should be more then number of random questions to be assigned ! (Number of Random Question to be Assigned = {{q}})</h3> {% endcomment %}
+
+
 
             <hr>
             <p class="single-form-mks">
@@ -116,19 +128,56 @@
 
 
            
-            <input class="addqt"type="submit" value="Next ">
-            
+            <input class="addqt"type="submit" value="Next "   >
         </form>
 
-        <li>
-        <a href="{% url 'taketoPreview'  pk=request.session.tename fk=request.session.quizn %}">Review</a>
+        <li >
+        <a id="hello" href="{% url 'taketoPreview'  pk=request.session.tename fk=request.session.quizn %}" target="blank" >Review</a>
         </li>
     </div>
 
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
     <script>
+
+   
+function ShowHide()
+{ 
+    var pre = document.getElementById("num").innerText
+    console.log(pre)
+    var que = document.getElementById("123").innerText
+    console.log(que)
+    if (Number(que)<= Number(pre)) 
+  {
+     console.log(`lesss`)
+     $("#sub").text("Add atleast ["+pre+"] or more number of questions !");
+
+
+  $("#hello ").click(function(e){
+
+    Swal.fire({
+        title: 'More Questions Required !',
+      //  text: 'Add more then [' +pre+ '] questions , to allot random quetions to students !'  ,
+        text: 'You have created less number of questions then the number of random questions to be assigned ! \n No. of Random Question : '+pre  ,
+        icon: 'warning',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#800080',
+      }) 
+    e.preventDefault();});
+  }
+  
+}
+
+
+$(document).ready(function(){
+
+    ShowHide();
+
+}); 
+ 
+
+
         $(function () {
             var $src = $('#op1'),
                 $dst = $('#one1');

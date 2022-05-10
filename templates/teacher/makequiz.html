@@ -66,6 +66,8 @@
 
 
     <div class="form-area">
+        <h1></h1>
+        <label  style="position: absolute;top: 43%;left: 32%;font-size: 11px;width: 70%;font-weight: 600;color: #9a0909;">(add number of random question to be assigned to student from list of questions)  </label>
         <h3>Add Quiz</h3>
         <form action="{% url 'getquizinfo' pk=request.session.tename%}" method="post">
             {% csrf_token %}
@@ -75,7 +77,8 @@
             </p>
             
             <p class="single-form">
-                <label for="marks">Number of Questions</label><input type="no" name="no" id="no" required>   
+                <label for="marks">Number of Questions</label><input type="no" name="no" id="no" required>  
+                 
             </p>
 
             <p class="single-form">
@@ -92,12 +95,25 @@
                 <label for="quiz name">Quiz End Time</label><input type="time" name="time" id="time" required>
                 
             </p>
-            <input class="bnt" type="submit" value="Submit">
+            <input class="bnt" type="submit" value="Submit" onClick="onClick()"  >
             <!-- <a href="addQue.html">Submit</a> -->
         </form>
     </div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
+
+function onClick(){
+    Swal.fire({
+        title: 'Info' ,
+      //  text: 'Add more then [' +pre+ '] questions , to allot random quetions to students !'  ,
+        text: 'Questions created by teacher should be greater then number of random question to be assigned .'  ,
+        icon: 'info',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#800080',
+      }) 
+}
+
 
    var date = new Date();
     var cdate = date.getDate();
@@ -112,6 +128,24 @@
     var minDate = year +"-"+month + "-" + cdate;
     document.getElementById("DATE").setAttribute('min', minDate);
     console.log(minDate);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+  
 
 </script>
    

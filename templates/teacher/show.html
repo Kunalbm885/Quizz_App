@@ -45,7 +45,7 @@
     <!--header area start-->
     <div class="corheader">
 
-        <h1>Quiz Name :{{request.session.quizn}}</h1>
+        <h1>Quiz Name : {{name}}</h1>
         {% comment %} {% for c in check2%} {% endcomment %}
         <strong>Total_Marks: {{total}} </strong>
         {% comment %} {% endfor %} {% endcomment %}
@@ -130,9 +130,7 @@
 
                 {% comment %} <input class = "sendemail" type ="submit" href="{% url 'emailsend' %}">Create Quiz</input> {% endcomment %}
 
-               
-                    <a href="{% url 'emailsend' %}" style="text-align: center;background: purple;color: white;text-decoration: none;padding: 5px 10px;left: 45%;position: relative;border-radius: 5px;bottom :25px">Create Quiz</a>
-                    
+                
             </div>
         
     <script>

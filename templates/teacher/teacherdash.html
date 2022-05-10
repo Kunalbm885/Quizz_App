@@ -88,6 +88,7 @@
 
     </div>
 </div>
+
     <!--sidebar end-->
 
     {% comment %} <div class="manage_content">
@@ -111,7 +112,7 @@
                         
 
                         <div class="card-block">
-                            <strong class="m-b-20"><a href="{% url 'taketoPreview'  pk=request.session.tename fk=i.quizname %}">Quiz :&nbsp&nbsp{{i.quizname}}</a></strong>
+                            <strong class="m-b-20"><a href="{% url 'taketoshow'  pk=request.session.tename fk=i.quizname %}">Quiz :&nbsp&nbsp{{i.quizname}}</a></strong>
                             {% comment %} <hr> {% endcomment %}
 
                             {% comment %} <label class="sub"  style="position: relative;color: #8a82ea;font-size: 14px;font-weight: bold;">Subject :&nbsp&nbsp{{i.Subject}}</label> {% endcomment %}
